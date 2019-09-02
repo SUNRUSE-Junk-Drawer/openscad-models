@@ -6,3 +6,14 @@ before_install:
   - sudo apt-get install openscad xvfb -y
 script:
   - sh ./scripts/generate-all.sh
+deploy:
+  provider: releases
+  api_key:
+    secure: "I26WydUtNhnOr6V945Fuaw13D3wwRC6qIpHyJGsmUka8zThqUWCpXHrC46uBbGaIuLHra24nSHP7E4+H49mKdhQjuhTN2EkxqlXfEo9zGWcWCOL+pWF2XDfFdg8Awz448EEXOWEkxjcp4eyshXUN22/gF7nTuYiTiq8te74oPDbD1bfVvYfRo7CEKQcnArdCKaYKLHjt3nH0Rculuswgzn4g9EkK4wKpP5kLgwsrPWDBGVBXRKujMkBMkwe/ySQ0Esc26VEgR5UMxtgfer+8lsPKGep0XGtyFhR+duVEuA5zdmqbX7uYldnIUt5Yed6DQ1ftXQpI94K9VuBN6rmx6Gy7Epm30qE75+tmplppZsslG+alyZX3Ul3HUJj9z0mtdnx4IN3WCgwdqnM/BFue8fvswMJ4tdHhI84jN1HPXUhUmKg/GZ/X5oKMN8f7Axl2lPJdvlq12Q03zGEiDWh/r1HvZ7afQThb0ozukoZeoHk3/TsrJkxkJ8DfklMm+aGuZMlu6Gpay1vhaVOAQG5GgsrQkDJ5nf44f/UKW/dkvPlRYJ4si+qZJSli/OLKTFU1d9HV3o2vLE8J5ZgNj2z8IASFV6m93dWMKGzuALZwR+x1bJyOMXigOWVmVb7QIyrwBbHGgI+8yeAAK5NUV8dSzUMtByECqMx3W/kBO8byOak="
+  file_glob: true
+  file:
+    - models/**/*.png
+    - models/**/*.stl
+  skip_cleanup: true
+  on:
+    branch: master

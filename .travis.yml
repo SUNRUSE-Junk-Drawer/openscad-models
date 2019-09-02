@@ -5,7 +5,7 @@ before_install:
   - sudo apt-get update -q
   - sudo apt-get install openscad xvfb mesa-utils libgl1-mesa-glx -y
 script:
-  - xvfb-run -s "-screen 0 1280x1024x24" sh ./scripts/generate-all.sh
+  - xvfb-run -s "-screen 0 1280x1024x24" sh ./scripts/generate_all.sh
 deploy:
   provider: releases
   api_key:

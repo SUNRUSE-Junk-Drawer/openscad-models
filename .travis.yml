@@ -5,7 +5,7 @@ before_install:
   - sudo apt-get update -q
   - sudo apt-get install openscad xvfb -y
 script:
-  - sh ./scripts/generate-all.sh
+  - xvfb-run sh ./scripts/generate-all.sh
 deploy:
   provider: releases
   api_key:

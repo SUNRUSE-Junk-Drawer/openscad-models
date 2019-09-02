@@ -3,7 +3,7 @@ language: minimal
 before_install:
   - sudo add-apt-repository ppa:openscad/releases -y
   - sudo apt-get update -q
-  - sudo apt-get install openscad xvfb mesa-utils libgl1-mesa-glx -y
+  - sudo apt-get install openscad xvfb -y
 script:
   - xvfb-run -s "-screen 0 1280x1024x24" sh ./scripts/generate_all.sh
 deploy:

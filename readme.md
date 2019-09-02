@@ -3,3 +3,8 @@
 This is a big dump of everything I work on with OpenSCAD.
 
 See the [models](models) directory for more.
+
+## Continuous Integration
+
+All files of the pattern `*.render.scad` are rendered to both STL and PNG and
+pushed to GitHub as releases.

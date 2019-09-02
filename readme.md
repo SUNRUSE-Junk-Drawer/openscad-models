@@ -8,3 +8,6 @@ See the [models](models) directory for more.
 
 All files of the pattern `*.render.scad` are rendered to both STL and PNG and
 pushed to GitHub as releases.
+
+Only the file name is included (not the path), so ensure that any files to be
+rendered have a unique name.

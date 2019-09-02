@@ -3,6 +3,6 @@ language: minimal
 before_install:
   - sudo add-apt-repository ppa:openscad/releases -y
   - sudo apt-get update -q
-  - sudo apt-get install openscad -y
+  - sudo apt-get install openscad xvfb -y
 script:
   - sh ./scripts/generate-all.sh

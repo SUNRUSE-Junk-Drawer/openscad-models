@@ -16,6 +16,7 @@ module connectors_notched_circle_female(
   inner_circle_diameter_tight = diameter - connectors_notched_circle_thickness - tight_tolerance;
   notch_diameter_loose = connectors_notched_circle_notch_diameter + loose_tolerance;
   notch_diameter_tight = connectors_notched_circle_notch_diameter + tight_tolerance;
+  final_circle_length = length + tight_tolerance - connectors_notched_circle_loose_length - connectors_notched_circle_loose_to_tight_length;
   union() {
     difference() {
       // The outer circle.
@@ -31,7 +32,7 @@ module connectors_notched_circle_female(
             outer_circle_diameter_tight
           ],
           [
-            length + tight_tolerance - connectors_notched_circle_loose_length - connectors_notched_circle_loose_to_tight_length,
+            final_circle_length,
             outer_circle_diameter_tight
           ],
         ],
@@ -51,7 +52,7 @@ module connectors_notched_circle_female(
             inner_circle_diameter_tight
           ],
           [
-            length + tight_tolerance - connectors_notched_circle_loose_length - connectors_notched_circle_loose_to_tight_length,
+            final_circle_length,
             inner_circle_diameter_tight
           ],
         ],
@@ -78,7 +79,7 @@ module connectors_notched_circle_female(
               notch_diameter_tight
             ],
             [
-              length + tight_tolerance - connectors_notched_circle_loose_length - connectors_notched_circle_loose_to_tight_length,
+              final_circle_length,
               notch_diameter_tight
             ],
           ],
@@ -99,7 +100,7 @@ module connectors_notched_circle_female(
             outer_circle_diameter_tight
           ],
           [
-            length + tight_tolerance - connectors_notched_circle_loose_length - connectors_notched_circle_loose_to_tight_length,
+            final_circle_length,
             outer_circle_diameter_tight
           ],
         ],

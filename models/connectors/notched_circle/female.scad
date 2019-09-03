@@ -12,33 +12,92 @@ module connectors_notched_circle_female(
 ) {
   union() {
     difference() {
-      cylinder(
-        d = diameter + tight_tolerance,
-        h = length + tight_tolerance,
-        $fn = cylinder_sides(diameter)
+      // The outer circle.
+      cylinder_sequence(
+        diameter + loose_tolerance,
+        [
+          [
+            connectors_notched_circle_loose_length,
+            diameter + loose_tolerance
+          ],
+          [
+            connectors_notched_circle_loose_to_tight_length,
+            diameter + tight_tolerance
+          ],
+          [
+            length + tight_tolerance - connectors_notched_circle_loose_length - connectors_notched_circle_loose_to_tight_length,
+            diameter + tight_tolerance
+          ],
+        ],
+        cylinder_sides(diameter)
       );
-      cylinder(
-        d = diameter - connectors_notched_circle_thickness - tight_tolerance,
-        h = length + tight_tolerance,
-        $fn = cylinder_sides(diameter)
+
+      // The inner circle.
+      cylinder_sequence(
+        diameter - connectors_notched_circle_thickness - loose_tolerance,
+        [
+          [
+            connectors_notched_circle_loose_length,
+            diameter - connectors_notched_circle_thickness - loose_tolerance
+          ],
+          [
+            connectors_notched_circle_loose_to_tight_length,
+            diameter - connectors_notched_circle_thickness - tight_tolerance
+          ],
+          [
+            length + tight_tolerance - connectors_notched_circle_loose_length - connectors_notched_circle_loose_to_tight_length,
+            diameter - connectors_notched_circle_thickness - tight_tolerance
+          ],
+        ],
+        cylinder_sides(diameter)
       );
     };
+
     intersection() {
+      // The notch.
       translate([
         0,
         diameter / 2 - connectors_notched_circle_thickness / 2,
         0
       ]) {
-        cylinder(
-          d = connectors_notched_circle_notch_diameter + tight_tolerance,
-          h = length + tight_tolerance,
-          $fn = cylinder_sides(connectors_notched_circle_notch_diameter)
+        cylinder_sequence(
+          connectors_notched_circle_notch_diameter + loose_tolerance,
+          [
+            [
+              connectors_notched_circle_loose_length,
+              connectors_notched_circle_notch_diameter + loose_tolerance
+            ],
+            [
+              connectors_notched_circle_loose_to_tight_length,
+              connectors_notched_circle_notch_diameter + tight_tolerance
+            ],
+            [
+              length + tight_tolerance - connectors_notched_circle_loose_length - connectors_notched_circle_loose_to_tight_length,
+              connectors_notched_circle_notch_diameter + tight_tolerance
+            ],
+          ],
+          cylinder_sides(connectors_notched_circle_notch_diameter)
         );
       };
-      cylinder(
-        d = diameter + tight_tolerance,
-        h = length + tight_tolerance,
-        $fn = cylinder_sides(diameter)
+
+      // Ensure that the notch does not escape the outer circle.
+      cylinder_sequence(
+        diameter + loose_tolerance,
+        [
+          [
+            connectors_notched_circle_loose_length,
+            diameter + loose_tolerance
+          ],
+          [
+            connectors_notched_circle_loose_to_tight_length,
+            diameter + tight_tolerance
+          ],
+          [
+            length + tight_tolerance - connectors_notched_circle_loose_length - connectors_notched_circle_loose_to_tight_length,
+            diameter + tight_tolerance
+          ],
+        ],
+        cylinder_sides(diameter)
       );
     };
   };

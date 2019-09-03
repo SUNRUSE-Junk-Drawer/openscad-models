@@ -19,6 +19,6 @@ function cylinder_sides(
       360 / $fa,
       diameter * PI / $fs
     ),
-    5
+    8
   )
 );

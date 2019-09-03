@@ -10,23 +10,29 @@ module connectors_notched_circle_female(
     // The length of the male compatible circle.
     length
 ) {
+  outer_circle_diameter_loose = diameter + loose_tolerance;
+  outer_circle_diameter_tight = diameter + tight_tolerance;
+  inner_circle_diameter_loose = diameter - connectors_notched_circle_thickness - loose_tolerance;
+  inner_circle_diameter_tight = diameter - connectors_notched_circle_thickness - tight_tolerance;
+  notch_diameter_loose = connectors_notched_circle_notch_diameter + loose_tolerance;
+  notch_diameter_tight = connectors_notched_circle_notch_diameter + tight_tolerance;
   union() {
     difference() {
       // The outer circle.
       cylinder_sequence(
-        diameter + loose_tolerance,
+        outer_circle_diameter_loose,
         [
           [
             connectors_notched_circle_loose_length,
-            diameter + loose_tolerance
+            outer_circle_diameter_loose
           ],
           [
             connectors_notched_circle_loose_to_tight_length,
-            diameter + tight_tolerance
+            outer_circle_diameter_tight
           ],
           [
             length + tight_tolerance - connectors_notched_circle_loose_length - connectors_notched_circle_loose_to_tight_length,
-            diameter + tight_tolerance
+            outer_circle_diameter_tight
           ],
         ],
         cylinder_sides(diameter)
@@ -34,19 +40,19 @@ module connectors_notched_circle_female(
 
       // The inner circle.
       cylinder_sequence(
-        diameter - connectors_notched_circle_thickness - loose_tolerance,
+        inner_circle_diameter_loose,
         [
           [
             connectors_notched_circle_loose_length,
-            diameter - connectors_notched_circle_thickness - loose_tolerance
+            inner_circle_diameter_loose
           ],
           [
             connectors_notched_circle_loose_to_tight_length,
-            diameter - connectors_notched_circle_thickness - tight_tolerance
+            inner_circle_diameter_tight
           ],
           [
             length + tight_tolerance - connectors_notched_circle_loose_length - connectors_notched_circle_loose_to_tight_length,
-            diameter - connectors_notched_circle_thickness - tight_tolerance
+            inner_circle_diameter_tight
           ],
         ],
         cylinder_sides(diameter)
@@ -61,19 +67,19 @@ module connectors_notched_circle_female(
         0
       ]) {
         cylinder_sequence(
-          connectors_notched_circle_notch_diameter + loose_tolerance,
+          notch_diameter_loose,
           [
             [
               connectors_notched_circle_loose_length,
-              connectors_notched_circle_notch_diameter + loose_tolerance
+              notch_diameter_loose
             ],
             [
               connectors_notched_circle_loose_to_tight_length,
-              connectors_notched_circle_notch_diameter + tight_tolerance
+              notch_diameter_tight
             ],
             [
               length + tight_tolerance - connectors_notched_circle_loose_length - connectors_notched_circle_loose_to_tight_length,
-              connectors_notched_circle_notch_diameter + tight_tolerance
+              notch_diameter_tight
             ],
           ],
           cylinder_sides(connectors_notched_circle_notch_diameter)
@@ -82,19 +88,19 @@ module connectors_notched_circle_female(
 
       // Ensure that the notch does not escape the outer circle.
       cylinder_sequence(
-        diameter + loose_tolerance,
+        outer_circle_diameter_loose,
         [
           [
             connectors_notched_circle_loose_length,
-            diameter + loose_tolerance
+            outer_circle_diameter_loose
           ],
           [
             connectors_notched_circle_loose_to_tight_length,
-            diameter + tight_tolerance
+            outer_circle_diameter_tight
           ],
           [
             length + tight_tolerance - connectors_notched_circle_loose_length - connectors_notched_circle_loose_to_tight_length,
-            diameter + tight_tolerance
+            outer_circle_diameter_tight
           ],
         ],
         cylinder_sides(diameter)

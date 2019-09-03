@@ -38,3 +38,38 @@ module cylinder_perforations(
     };
   };
 };
+
+// Generates a "pipe" which lofts a sequence of circles together.
+module cylinder_sequence(
+  // The diameter of the first circle.
+  initial_diameter,
+  // An array of arrays, where each child array is two numbers:
+  // - The length of the segment along Z.
+  // - The diameter of the end of the segment.
+  length_diameter_pairs,
+  // The number of sides of all circles drawn.
+  sides,
+  // Used for recursion; leave as default.
+  i = 0
+) {
+  if (i < len(length_diameter_pairs)) {
+    cylinder(
+      d1 = initial_diameter,
+      d2 = length_diameter_pairs[i][1],
+      h = length_diameter_pairs[i][0],
+      $fn = sides
+    );
+    translate([
+      0,
+      0,
+      length_diameter_pairs[i][0]
+    ]) {
+      cylinder_sequence(
+        length_diameter_pairs[i][1],
+        length_diameter_pairs,
+        sides,
+        i + 1
+      );
+    };
+  };
+};

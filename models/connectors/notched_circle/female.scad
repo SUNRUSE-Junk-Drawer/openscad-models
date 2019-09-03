@@ -1,4 +1,5 @@
 include <../../settings.scad>;
+use <../../utilities/cylinders.scad>;
 include <constants.scad>;
 
 // Renders the female counterpart of a circular connector with an orienting

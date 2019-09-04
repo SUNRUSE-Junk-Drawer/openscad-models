@@ -2,6 +2,16 @@ include <../settings.scad>;
 use <barrel/shape.scad>;
 use <muffler/shape.scad>;
 use <muzzle/shape.scad>;
+use <body/left.scad>;
+use <body/right.scad>;
+
+rotate([0, 90, 0]) {
+    hero_dualie_body_left();
+};
+
+rotate([0, 90, 0]) {
+    hero_dualie_body_right();
+};
 
 rotate([90, 0, 0]) {
   hero_dualie_barrel_shape();

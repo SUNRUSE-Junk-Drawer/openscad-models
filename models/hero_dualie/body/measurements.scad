@@ -1,0 +1,10 @@
+hero_dualie_body_wall_thickness = 7;
+hero_dualie_body_front_height = 41;
+hero_dualie_body_top_length = 153;
+hero_dualie_body_top_height = 72;
+hero_dualie_body_tail_length = 26;
+hero_dualie_body_handle_x = 100;
+hero_dualie_body_handle_y = 98;
+hero_dualie_body_handle_length = 35;
+hero_dualie_body_thickness = 28;
+hero_dualie_body_indent_depth = 8;

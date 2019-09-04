@@ -8,7 +8,7 @@ use <../../connectors/notched_circle/male.scad>;
 use <../../connectors/notched_circle/female.scad>;
 
 module hero_dualie_muffler_shape() {
-  bottom_of_muzzle_recess = hero_dualie_muffler_body_length - hero_dualie_muffler_transition_to_muzzle_length;
+  bottom_of_muzzle_recess = hero_dualie_muffler_body_length + hero_dualie_muffler_transition_to_muzzle_length - hero_dualie_muzzle_connector_length;
 
   difference() {
     // The body.

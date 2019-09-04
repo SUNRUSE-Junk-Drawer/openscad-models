@@ -1,4 +1,4 @@
-hero_dualie_muzzle_hole_diameter = 8;
+hero_dualie_muzzle_hole_diameter = 5;
 hero_dualie_muzzle_hole_depth = 6;
 hero_dualie_muzzle_end_diameter = 34;
 hero_dualie_muzzle_start_diameter = 41;

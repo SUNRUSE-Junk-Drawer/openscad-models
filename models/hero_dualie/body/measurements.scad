@@ -8,3 +8,6 @@ hero_dualie_body_handle_y = 98;
 hero_dualie_body_handle_length = 35;
 hero_dualie_body_thickness = 28;
 hero_dualie_body_indent_depth = 8;
+hero_dualie_body_safety_x = 76;
+hero_dualie_body_safety_y = 76;
+hero_dualie_body_safety_surround_diameter = 33;

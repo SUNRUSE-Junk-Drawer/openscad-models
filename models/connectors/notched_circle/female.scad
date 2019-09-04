@@ -2,13 +2,16 @@ include <../../settings.scad>;
 use <../../utilities/cylinders.scad>;
 include <constants.scad>;
 
-// Renders the female counterpart of a circular connector with an orienting
-// notch.  Place on the surface oriented so that Z- is the surface normal.
+// Renders the female counterpart of a circular connector with a number of
+// orienting notches.  Place on the surface oriented so that Z- is the surface
+// normal.
 module connectors_notched_circle_female(
     // The outer diameter of the compatible male circle.
     diameter,
     // The length of the male compatible circle.
-    length
+    length,
+    // The number of notches, spaced evenly.
+    notches
 ) {
   outer_circle_diameter_loose = diameter + loose_tolerance;
   outer_circle_diameter_tight = diameter + tight_tolerance;
@@ -62,29 +65,33 @@ module connectors_notched_circle_female(
 
     intersection() {
       // The notch.
-      translate([
-        0,
-        diameter / 2 - connectors_notched_circle_thickness / 2,
-        0
-      ]) {
-        cylinder_sequence(
-          notch_diameter_loose,
-          [
-            [
-              connectors_notched_circle_loose_length,
-              notch_diameter_loose
-            ],
-            [
-              connectors_notched_circle_loose_to_tight_length,
-              notch_diameter_tight
-            ],
-            [
-              final_circle_length,
-              notch_diameter_tight
-            ],
-          ],
-          cylinder_sides(connectors_notched_circle_notch_diameter)
-        );
+      for (notch = [0:notches - 1]) {
+        rotate([0, 0, notch * 360 / notches]) {
+          translate([
+            0,
+            diameter / 2 - connectors_notched_circle_thickness / 2,
+            0
+          ]) {
+            cylinder_sequence(
+              notch_diameter_loose,
+              [
+                [
+                  connectors_notched_circle_loose_length,
+                  notch_diameter_loose
+                ],
+                [
+                  connectors_notched_circle_loose_to_tight_length,
+                  notch_diameter_tight
+                ],
+                [
+                  final_circle_length,
+                  notch_diameter_tight
+                ],
+              ],
+              cylinder_sides(connectors_notched_circle_notch_diameter)
+            );
+          };
+        };
       };
 
       // Ensure that the notch does not escape the outer circle.

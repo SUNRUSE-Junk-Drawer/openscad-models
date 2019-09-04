@@ -8,7 +8,9 @@ module connectors_notched_circle_male(
     // The outer diameter of the male circle.
     diameter,
     // The length of the male circle.
-    length
+    length,
+    // The number of notches, spaced evenly.
+    notches
 ) {
   union() {
     difference() {
@@ -24,16 +26,20 @@ module connectors_notched_circle_male(
       );
     };
     intersection() {
-      translate([
-        0,
-        diameter / 2 - connectors_notched_circle_thickness / 2,
-        0
-      ]) {
-        cylinder(
-          d = connectors_notched_circle_notch_diameter,
-          h = length,
-          $fn = cylinder_sides(connectors_notched_circle_notch_diameter)
-        );
+      for (notch = [0:notches - 1]) {
+        rotate([0, 0, notch * 360 / notches]) {
+          translate([
+            0,
+            diameter / 2 - connectors_notched_circle_thickness / 2,
+            0
+          ]) {
+            cylinder(
+              d = connectors_notched_circle_notch_diameter,
+              h = length,
+              $fn = cylinder_sides(connectors_notched_circle_notch_diameter)
+            );
+          };
+        };
       };
       cylinder(
         d = diameter,

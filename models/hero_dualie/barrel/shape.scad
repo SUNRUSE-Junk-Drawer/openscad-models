@@ -16,7 +16,8 @@ module hero_dualie_barrel_shape() {
     // The connector to the body.
     connectors_notched_circle_female(
       hero_dualie_barrel_connector_diameter,
-      hero_dualie_barrel_connector_length
+      hero_dualie_barrel_connector_length,
+      hero_dualie_barrel_connector_notches
     );
 
     // The chamber in which the LED sits.
@@ -58,7 +59,8 @@ module hero_dualie_barrel_shape() {
   ]) {
     connectors_notched_circle_male(
       hero_dualie_barrel_connector_diameter,
-      hero_dualie_barrel_connector_length
+      hero_dualie_barrel_connector_length,
+      hero_dualie_barrel_connector_notches
     );
   };
 

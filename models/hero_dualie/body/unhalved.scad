@@ -64,7 +64,8 @@ module hero_dualie_body_unhalved() {
     rotate([0, -90, 0]) {
       connectors_notched_circle_male(
         hero_dualie_barrel_connector_diameter,
-        hero_dualie_barrel_connector_length
+        hero_dualie_barrel_connector_length,
+        hero_dualie_barrel_connector_notches
       );
     };
   };

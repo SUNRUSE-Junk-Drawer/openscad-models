@@ -31,7 +31,8 @@ module hero_dualie_muffler_shape() {
     // The connector to the barrel.
     connectors_notched_circle_female(
       hero_dualie_barrel_connector_diameter,
-      hero_dualie_barrel_connector_length
+      hero_dualie_barrel_connector_length,
+      hero_dualie_barrel_connector_notches
     );
 
     // The recess for the muzzle.
@@ -69,7 +70,8 @@ module hero_dualie_muffler_shape() {
   ]) {
     connectors_notched_circle_male(
       hero_dualie_muzzle_connector_diameter,
-      hero_dualie_muzzle_connector_length
+      hero_dualie_muzzle_connector_length,
+      hero_dualie_muzzle_connector_notches
     );
   };
 };

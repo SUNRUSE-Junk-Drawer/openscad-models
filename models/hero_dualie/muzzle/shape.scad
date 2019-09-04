@@ -30,7 +30,8 @@ module hero_dualie_muzzle_shape() {
     // The connector to the muffler.
     connectors_notched_circle_female(
       hero_dualie_muzzle_connector_diameter,
-      hero_dualie_muzzle_connector_length
+      hero_dualie_muzzle_connector_length,
+      hero_dualie_muzzle_connector_notches
     );
   };
 };

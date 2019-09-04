@@ -4,3 +4,4 @@ hero_dualie_muzzle_start_diameter = 41;
 hero_dualie_muzzle_length = 2;
 hero_dualie_muzzle_connector_diameter = 18;
 hero_dualie_muzzle_connector_length = 5;
+hero_dualie_muzzle_connector_notches = 3;

@@ -21,17 +21,11 @@ module hero_dualie_muzzle_shape() {
     );
 
     // The hole in the end.
-    translate([
-      0,
-      0,
-      hero_dualie_muzzle_connector_length + hero_dualie_muzzle_length - hero_dualie_muzzle_hole_depth
-    ]) {
-      cylinder(
-        d = hero_dualie_muzzle_hole_diameter,
-        h = hero_dualie_muzzle_hole_depth,
-        $fn = cylinder_sides(hero_dualie_muzzle_hole_diameter)
-      );
-    };
+    cylinder(
+      d = hero_dualie_muzzle_hole_diameter,
+      h = hero_dualie_muzzle_connector_length + hero_dualie_muzzle_length,
+      $fn = cylinder_sides(hero_dualie_muzzle_hole_diameter)
+    );
 
     // The connector to the muffler.
     connectors_notched_circle_female(

@@ -9,6 +9,7 @@ use <../../connectors/notched_circle/female.scad>;
 
 module hero_dualie_muffler_shape() {
   bottom_of_muzzle_recess = hero_dualie_muffler_body_length + hero_dualie_muffler_transition_to_muzzle_length - hero_dualie_muzzle_connector_length;
+  hole_depth = hero_dualie_muffler_hole_depth - hero_dualie_muzzle_connector_length - hero_dualie_muzzle_length;
 
   difference() {
     // The body.
@@ -43,6 +44,19 @@ module hero_dualie_muffler_shape() {
         d = hero_dualie_muzzle_start_diameter + loose_tolerance,
         h = hero_dualie_muzzle_connector_length,
         $fn = cylinder_sides(hero_dualie_muzzle_start_diameter)
+      );
+    };
+
+    // A continuation of the hole from the muzzle.
+    translate([
+      0,
+      0,
+      bottom_of_muzzle_recess - hole_depth
+    ]) {
+      cylinder(
+        d = hero_dualie_muzzle_hole_diameter,
+        h = hole_depth,
+        $fn = cylinder_sides(hero_dualie_muzzle_hole_diameter)
       );
     };
   };

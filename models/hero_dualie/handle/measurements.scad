@@ -1,0 +1,14 @@
+hero_dualie_handle_height = 70;
+hero_dualie_handle_top_front_diameter = 21;
+hero_dualie_handle_top_back_diameter = 15;
+hero_dualie_handle_bottom_front_x = -4.3;
+hero_dualie_handle_bottom_front_diameter = 25;
+hero_dualie_handle_bottom_back_diameter = 18;
+hero_dualie_handle_bottom_back_x = -21;
+hero_dualie_handle_length = 35;
+hero_dualie_handle_grips = 3;
+hero_dualie_handle_grip_depth = 5;
+hero_dualie_handle_grip_scale = 0.8;
+hero_dualie_handle_merge_front_y = 19;
+hero_dualie_handle_merge_back_y = 32;
+hero_dualie_handle_merge_diameter = 7;

@@ -4,6 +4,7 @@ use <muffler/shape.scad>;
 use <muzzle/shape.scad>;
 use <body/left.scad>;
 use <body/right.scad>;
+use <handle/shape.scad>;
 
 translate([-10, 30, 20]) {
     rotate([-90, 0, 90]) {
@@ -14,6 +15,12 @@ translate([-10, 30, 20]) {
 translate([10, 30, 20]) {
     rotate([-90, 0, 90]) {
         hero_dualie_body_right();
+    };
+};
+
+translate([0, 130, -100]) {
+    rotate([180, 0, 0]) {
+        hero_dualie_handle_shape();
     };
 };
 

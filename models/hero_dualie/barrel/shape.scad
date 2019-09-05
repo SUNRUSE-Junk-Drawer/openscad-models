@@ -34,10 +34,10 @@ module hero_dualie_barrel_shape() {
     };
 
     // Some holes for LED light to shine through.
-    translate([0, 0, hero_dualie_barrel_connector_length]) {
+    translate([0, 0, hero_dualie_barrel_connector_length + hero_dualie_barrel_floor_ceiling_thickness]) {
       cylinder_perforations(
         hero_dualie_barrel_diameter,
-        hero_dualie_barrel_length,
+        hero_dualie_barrel_length - hero_dualie_barrel_floor_ceiling_thickness * 2,
         1,
         3
       );

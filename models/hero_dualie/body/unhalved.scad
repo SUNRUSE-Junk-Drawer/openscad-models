@@ -150,7 +150,7 @@ module hero_dualie_body_unhalved() {
 
   // The connector to the handle.
   translate([
-    hero_dualie_body_handle_connector_x,
+    hero_dualie_body_handle_x,
     hero_dualie_body_handle_y + hero_dualie_body_handle_cap_height,
     0
   ]) {

@@ -12,7 +12,6 @@ hero_dualie_body_handle_merger_width = 30;
 hero_dualie_body_handle_merger_height = 21;
 hero_dualie_body_handle_merger_thickness = 4.5;
 hero_dualie_body_handle_merger_z = 19;
-hero_dualie_body_handle_connector_x = 95;
 hero_dualie_body_handle_connector_diameter = 15;
 hero_dualie_body_handle_connector_length = 10;
 hero_dualie_body_handle_connector_notches = 3;

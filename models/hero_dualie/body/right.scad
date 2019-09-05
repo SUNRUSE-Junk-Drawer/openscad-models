@@ -7,12 +7,12 @@ module hero_dualie_body_right() {
     translate([
       0,
       0,
-      hero_dualie_body_thickness / -2
+      hero_dualie_body_handle_cap_diameter / -2
     ]) {
       cube([
         hero_dualie_body_top_length + hero_dualie_body_tail_length,
-        hero_dualie_body_handle_y,
-        hero_dualie_body_thickness / 2
+        hero_dualie_body_handle_y + hero_dualie_body_handle_cap_height + hero_dualie_body_handle_connector_length,
+        hero_dualie_body_handle_cap_diameter / 2
       ]);
     };
   };

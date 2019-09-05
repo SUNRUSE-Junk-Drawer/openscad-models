@@ -27,10 +27,10 @@ module cylinder_perforations(
 ) {
   half_perimeter = diameter * PI / 2;
   angularPerforations = round(half_perimeter / perforation_spacing);
-  zPerforations = round(half_perimeter / perforation_spacing);
+  zPerforations = round(length / perforation_spacing);
   for (angle = [0:180 / angularPerforations:180]) {
     rotate([0, 0, angle]) {
-      for (z = [perforation_spacing:perforation_spacing:length - perforation_spacing]) {
+      for (z = [(length / zPerforations) * 0.5:length / zPerforations:length - (length / zPerforations) * 0.5]) {
         translate([0, 0, z]) {
           cube([diameter, perforation_size, perforation_size], center = true);
         };

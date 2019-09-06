@@ -21,7 +21,7 @@ module connectors_notched_circle_male(
       );
       cylinder(
         d = diameter - connectors_notched_circle_thickness,
-        h = length,
+        h = length + 0.001,
         $fn = cylinder_sides(diameter)
       );
     };

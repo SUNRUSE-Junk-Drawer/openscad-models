@@ -5,10 +5,20 @@ use <muzzle/shape.scad>;
 use <body/left.scad>;
 use <body/right.scad>;
 use <handle/shape.scad>;
+use <fore/glow.scad>;
 include <barrel/measurements.scad>;
 include <muffler/measurements.scad>;
 include <muzzle/measurements.scad>;
 include <body/measurements.scad>;
+include <fore/measurements.scad>;
+
+translate([
+  0,
+  0,
+  -hero_dualie_body_front_height / 2
+]) {
+  hero_dualie_fore_glow();
+};
 
 translate([
   0,

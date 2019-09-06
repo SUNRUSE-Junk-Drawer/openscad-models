@@ -5,6 +5,11 @@ use <muzzle/shape.scad>;
 use <body/left.scad>;
 use <body/right.scad>;
 use <handle/shape.scad>;
+use <fore/glow.scad>;
+
+translate([0, 20, -30]) {
+    hero_dualie_fore_glow();
+};
 
 translate([-10, 30, 20]) {
     rotate([-90, 0, 90]) {

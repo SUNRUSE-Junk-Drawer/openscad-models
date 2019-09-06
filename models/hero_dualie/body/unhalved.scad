@@ -5,7 +5,9 @@ use <outer.scad>;
 use <indent.scad>;
 use <cutout.scad>;
 include <../barrel/measurements.scad>;
+include <../fore/measurements.scad>;
 use <../../connectors/notched_circle/male.scad>;
+use <../../connectors/notched_circle/female.scad>;
 
 module hero_dualie_body_unhalved() {
   difference() {
@@ -51,6 +53,23 @@ module hero_dualie_body_unhalved() {
           h = hero_dualie_barrel_connector_length,
           $fn = cylinder_sides(hero_dualie_barrel_diameter)
         );
+      };
+    };
+
+    // The connector to the fore.
+    rotate([0, 90, -90]) {
+      translate([
+        0,
+        hero_dualie_fore_glow_pillar_x,
+        hero_dualie_fore_glow_pillar_y - hero_dualie_body_front_height
+      ]) {
+        rotate([
+          -hero_dualie_fore_glow_pillar_angle,
+          0,
+          0
+        ]) {
+          connectors_notched_circle_female(hero_dualie_fore_glow_pillar_diameter, hero_dualie_fore_glow_pillar_connector_length, hero_dualie_fore_glow_pillar_connector_notches);
+        };
       };
     };
   };

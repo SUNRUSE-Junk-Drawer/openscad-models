@@ -218,7 +218,7 @@ module hero_dualie_fore_glow() {
         };
       };
 
-      // The block from which the skew connector is cut.
+
       translate([
         0,
         hero_dualie_fore_x,
@@ -229,11 +229,32 @@ module hero_dualie_fore_glow() {
           0,
           0
         ]) {
+          // The block from which the skew connector is cut.
           cylinder(
             d = hero_dualie_fore_glow_skew_connector_diameter + hero_dualie_fore_glow_ring_wall_thickness * 2,
             h = hero_dualie_fore_glow_skew_connector_length + tight_tolerance + hero_dualie_fore_glow_ring_floor_ceiling_thickness,
             $fn = cylinder_sides(hero_dualie_fore_glow_skew_connector_diameter)
           );
+
+          // Narrow columns to hold the roof up during printing.
+          for (position = [
+            [5, -2],
+            [-5, -2],
+            [0, 5],
+            [0, -7]
+          ]) {
+            translate([
+              position[0],
+              position[1],
+              0
+            ]) {
+              cylinder(
+                d = hero_dualie_barrel_led_rail_diameter,
+                h = hero_dualie_fore_glow_ring_length,
+                $fn = cylinder_sides(hero_dualie_barrel_led_rail_diameter)
+              );
+            };
+          };
         };
       };
     };

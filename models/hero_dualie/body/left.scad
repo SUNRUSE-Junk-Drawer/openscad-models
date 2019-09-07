@@ -1,5 +1,6 @@
 include <../../settings.scad>;
-include <unhalved.scad>;
+include <measurements.scad>;
+use <unhalved.scad>;
 
 module hero_dualie_body_left() {
   intersection() {

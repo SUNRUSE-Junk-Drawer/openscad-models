@@ -1,4 +1,5 @@
 include <../../settings.scad>;
+use <../../utilities/math.scad>;
 use <../../utilities/cylinders.scad>;
 include <measurements.scad>;
 use <outer.scad>;
@@ -256,6 +257,32 @@ module hero_dualie_body_unhalved() {
           $fn = cylinder_sides(5 + loose_tolerance)
         );
       };
+    };
+
+    // A cavity for cable slack.
+    linear_extrude(hero_dualie_barrel_led_hole_diameter, center = true) {
+      polygon([
+        [20, 15],
+        [100, 50],
+        [100, 80],
+        [10, 30]
+      ]);
+    };
+  };
+
+  // Supports in the cable slack cavity.
+  for (progress = [0:0.1:1]) {
+    translate(linear_interpolate(
+      [25, 28],
+      [90, 60],
+      progress
+    )) {
+      cylinder(
+        d = hero_dualie_barrel_led_rail_diameter,
+        h = hero_dualie_barrel_led_hole_diameter,
+        $fn = cylinder_sides(hero_dualie_barrel_led_rail_diameter),
+        center = true
+      );
     };
   };
 };

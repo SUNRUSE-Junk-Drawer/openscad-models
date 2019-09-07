@@ -45,12 +45,12 @@ module hero_dualie_body_unhalved() {
     translate([
       hero_dualie_barrel_connector_length,
       hero_dualie_body_front_height / 2,
-      0
+      -0.001
     ]) {
       rotate([0, -90, 0]) {
         cylinder(
           d = hero_dualie_barrel_diameter + loose_tolerance,
-          h = hero_dualie_barrel_connector_length,
+          h = hero_dualie_barrel_connector_length + 0.001,
           $fn = cylinder_sides(hero_dualie_barrel_diameter)
         );
       };

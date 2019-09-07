@@ -41,12 +41,12 @@ module hero_dualie_body_unhalved() {
       };
     };
 
-    // A hole for the barrel.
     translate([
       hero_dualie_barrel_connector_length,
       hero_dualie_body_front_height / 2,
       -0.001
     ]) {
+      // A hole for the barrel.
       rotate([0, -90, 0]) {
         cylinder(
           d = hero_dualie_barrel_diameter + loose_tolerance,
@@ -56,7 +56,21 @@ module hero_dualie_body_unhalved() {
       };
     };
 
-    // The connector to the fore.
+    translate([
+      hero_dualie_barrel_connector_length,
+      hero_dualie_body_front_height / 2,
+      0
+    ]) {
+      // A hole for the barrel LED.
+      rotate([0, 90, 0]) {
+        cylinder(
+          d = hero_dualie_barrel_led_hole_diameter,
+          h = hero_dualie_barrel_connector_length + 10,
+          $fn = cylinder_sides(5 + loose_tolerance)
+        );
+      };
+    };
+
     rotate([0, 90, -90]) {
       translate([
         0,
@@ -68,7 +82,15 @@ module hero_dualie_body_unhalved() {
           0,
           0
         ]) {
+          // The connector to the fore.
           connectors_notched_circle_female(hero_dualie_fore_glow_pillar_diameter, hero_dualie_fore_glow_pillar_connector_length, hero_dualie_fore_glow_pillar_connector_notches);
+
+          // A hole for the fore LED.
+          cylinder(
+            d = hero_dualie_barrel_led_hole_diameter,
+            h = hero_dualie_fore_glow_pillar_connector_length + 30,
+            $fn = cylinder_sides(5 + loose_tolerance)
+          );
         };
       };
     };

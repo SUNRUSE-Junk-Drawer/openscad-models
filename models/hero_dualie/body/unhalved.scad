@@ -94,6 +94,21 @@ module hero_dualie_body_unhalved() {
         };
       };
     };
+
+    // The connector for the safety.
+    translate([
+      hero_dualie_body_safety_x,
+      hero_dualie_body_safety_y,
+      hero_dualie_body_thickness / -2
+    ]) {
+      rotate([0, 0, hero_dualie_body_safety_angle]) {
+        connectors_notched_circle_female(
+          hero_dualie_safety_connector_diameter,
+          hero_dualie_safety_connector_length,
+          hero_dualie_safety_connector_notches
+        );
+  };
+    }
   };
 
   // The connector to the barrel.

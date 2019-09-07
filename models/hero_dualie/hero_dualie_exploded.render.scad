@@ -6,6 +6,13 @@ use <body/left.scad>;
 use <body/right.scad>;
 use <handle/shape.scad>;
 use <fore/glow.scad>;
+use <safety/shape.scad>;
+
+translate([60, 110, -60]) {
+  rotate([90 , 0, 90]) {
+    hero_dualie_safety_shape();
+  };
+};
 
 translate([0, 20, -30]) {
     hero_dualie_fore_glow();

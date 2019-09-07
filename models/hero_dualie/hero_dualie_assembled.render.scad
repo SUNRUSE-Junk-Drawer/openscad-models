@@ -6,11 +6,22 @@ use <body/left.scad>;
 use <body/right.scad>;
 use <handle/shape.scad>;
 use <fore/glow.scad>;
+use <safety/shape.scad>;
 include <barrel/measurements.scad>;
 include <muffler/measurements.scad>;
 include <muzzle/measurements.scad>;
 include <body/measurements.scad>;
 include <fore/measurements.scad>;
+
+translate([
+  hero_dualie_body_thickness / 2,
+  hero_dualie_body_safety_x,
+  hero_dualie_body_front_height / 2 - hero_dualie_body_safety_y
+]) {
+  rotate([90, hero_dualie_body_safety_angle, 90]) {
+    hero_dualie_safety_shape();
+  };
+};
 
 translate([
   0,

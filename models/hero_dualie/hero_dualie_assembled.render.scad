@@ -55,7 +55,7 @@ translate([
       translate([
         0,
         hero_dualie_fore_skew,
-        hero_dualie_fore_skew_length + hero_dualie_fore_length + hero_dualie_fore_funnel_length + hero_dualie_fore_nut_connector_length
+        hero_dualie_fore_skew_length + hero_dualie_fore_length + hero_dualie_fore_funnel_length + hero_dualie_fore_nut_length
       ]) {
         rotate([0, 180, 270]) {
           hero_dualie_fore_nut();

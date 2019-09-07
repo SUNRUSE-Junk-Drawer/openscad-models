@@ -32,9 +32,24 @@ hero_dualie_fore_glow_wedge_cutout_d_x = 7;
 hero_dualie_fore_glow_wedge_cutout_d_y = 21;
 hero_dualie_fore_glow_wedge_thickness = 6;
 hero_dualie_fore_glow_wedge_wall_thickness = 1.5;
+
 hero_dualie_fore_glow_skew_connector_diameter = 10;
 hero_dualie_fore_glow_skew_connector_length = 4;
 hero_dualie_fore_glow_skew_connector_notches = 1;
+
 hero_dualie_fore_skew = 9;
 hero_dualie_fore_skew_diameter = 13;
 hero_dualie_fore_skew_length = 11;
+hero_dualie_fore_diameter = 19;
+hero_dualie_fore_length = 39;
+hero_dualie_fore_funnel_length = 6;
+
+hero_dualie_fore_nut_connector_diameter = 12;
+hero_dualie_fore_nut_connector_length = 10;
+hero_dualie_fore_nut_connector_notches = 3;
+
+hero_dualie_fore_nut_diameter = 18;
+hero_dualie_fore_nut_length = 9;
+hero_dualie_fore_nut_sides = 6;
+hero_dualie_fore_nut_horizontal_radiusing = 0.52;
+hero_dualie_fore_nut_vertical_radiusing = 1;

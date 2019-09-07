@@ -6,6 +6,7 @@ use <body/left.scad>;
 use <body/right.scad>;
 use <handle/shape.scad>;
 use <fore/glow.scad>;
+use <fore/skew.scad>;
 use <safety/shape.scad>;
 use <trigger/shape.scad>;
 include <barrel/measurements.scad>;
@@ -40,6 +41,16 @@ translate([
   -hero_dualie_body_front_height / 2
 ]) {
   hero_dualie_fore_glow();
+  
+  translate([
+    0,
+    hero_dualie_fore_x,
+    -hero_dualie_fore_y
+  ]) {
+    rotate([180 + hero_dualie_fore_angle, 0, 0]) {
+      hero_dualie_fore_skew();
+    };
+  };
 };
 
 translate([

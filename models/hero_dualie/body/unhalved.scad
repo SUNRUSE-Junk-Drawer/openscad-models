@@ -278,11 +278,16 @@ module hero_dualie_body_unhalved() {
       progress
     )) {
       cylinder(
-        d = hero_dualie_barrel_led_rail_diameter,
+        d = hero_dualie_body_slack_post_diameter,
         h = hero_dualie_barrel_led_hole_diameter,
-        $fn = cylinder_sides(hero_dualie_barrel_led_rail_diameter),
+        $fn = cylinder_sides(hero_dualie_body_slack_post_diameter),
         center = true
       );
+      cube([
+        hero_dualie_body_slack_post_diameter,
+        hero_dualie_body_slack_beam_length,
+        hero_dualie_body_slack_beam_thickness
+      ], center = true);
     };
   };
 };

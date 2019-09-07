@@ -22,3 +22,6 @@ hero_dualie_body_safety_y = 84.5;
 hero_dualie_body_safety_angle = 20;
 hero_dualie_body_safety_surround_diameter = 33;
 hero_dualie_body_trigger_angle = 20;
+hero_dualie_body_slack_post_diameter = 3;
+hero_dualie_body_slack_beam_length = 35;
+hero_dualie_body_slack_beam_thickness = 2;

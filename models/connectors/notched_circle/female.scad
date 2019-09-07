@@ -11,15 +11,19 @@ module connectors_notched_circle_female(
     // The length of the male compatible circle.
     length,
     // The number of notches, spaced evenly.
-    notches
+    notches,
+    // The opening tolerance; defaults to loose_tolerance.
+    opening_tolerance = loose_tolerance,
+    // The closing tolerance; defaults to tight_tolerance,
+    closing_tolerance = tight_tolerance
 ) {
-  outer_circle_diameter_loose = diameter + loose_tolerance;
-  outer_circle_diameter_tight = diameter + tight_tolerance;
-  inner_circle_diameter_loose = diameter - connectors_notched_circle_thickness - loose_tolerance;
-  inner_circle_diameter_tight = diameter - connectors_notched_circle_thickness - tight_tolerance;
-  notch_diameter_loose = connectors_notched_circle_notch_diameter + loose_tolerance;
-  notch_diameter_tight = connectors_notched_circle_notch_diameter + tight_tolerance;
-  final_circle_length = length + tight_tolerance - connectors_notched_circle_loose_length - connectors_notched_circle_loose_to_tight_length;
+  outer_circle_diameter_loose = diameter + opening_tolerance;
+  outer_circle_diameter_tight = diameter + closing_tolerance;
+  inner_circle_diameter_loose = diameter - connectors_notched_circle_thickness - opening_tolerance;
+  inner_circle_diameter_tight = diameter - connectors_notched_circle_thickness - closing_tolerance;
+  notch_diameter_loose = connectors_notched_circle_notch_diameter + opening_tolerance;
+  notch_diameter_tight = connectors_notched_circle_notch_diameter + closing_tolerance;
+  final_circle_length = length + closing_tolerance - connectors_notched_circle_loose_length - connectors_notched_circle_loose_to_tight_length;
   union() {
     difference() {
       // The outer circle.

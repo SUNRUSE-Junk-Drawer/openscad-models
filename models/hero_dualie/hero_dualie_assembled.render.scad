@@ -8,6 +8,7 @@ use <handle/shape.scad>;
 use <fore/glow.scad>;
 use <fore/skew.scad>;
 use <fore/nut.scad>;
+use <feed/shape.scad>;
 use <safety/shape.scad>;
 use <trigger/shape.scad>;
 include <barrel/measurements.scad>;
@@ -58,6 +59,9 @@ translate([
       ]) {
         rotate([0, 180, 270]) {
           hero_dualie_fore_nut();
+        };
+        rotate([90, 0, 270]) {
+            hero_dualie_feed_shape();
         };
       };
     };

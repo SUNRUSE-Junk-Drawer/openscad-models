@@ -7,10 +7,17 @@ use <body/right.scad>;
 use <handle/shape.scad>;
 use <fore/glow.scad>;
 use <safety/shape.scad>;
+use <trigger/shape.scad>;
 
 translate([60, 110, -60]) {
   rotate([90 , 0, 90]) {
     hero_dualie_safety_shape();
+  };
+};
+
+translate([0, 90, -80]) {
+  rotate([-90, 90, 90]) {
+    hero_dualie_trigger_shape();
   };
 };
 

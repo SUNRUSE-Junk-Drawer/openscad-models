@@ -9,6 +9,7 @@ include <../fore/measurements.scad>;
 include <../safety/measurements.scad>;
 use <../../connectors/notched_circle/male.scad>;
 use <../../connectors/notched_circle/female.scad>;
+use <../trigger/shape.scad>;
 
 module hero_dualie_body_unhalved() {
   difference() {
@@ -219,6 +220,25 @@ module hero_dualie_body_unhalved() {
             hero_dualie_body_handle_connector_length,
             hero_dualie_body_handle_connector_notches
           );
+        };
+      };
+    };
+
+    // A hole for the trigger.
+    translate([
+      hero_dualie_body_safety_x,
+      hero_dualie_body_safety_y,
+      0
+    ]) {
+      rotate([0, 0, 90 + hero_dualie_body_trigger_angle]) {
+        minkowski() {
+          cylinder(
+            d = tight_tolerance * 2,
+            h = tight_tolerance * 2,
+            $fn = cylinder_sides(tight_tolerance * 2),
+            center = true
+          );
+          hero_dualie_trigger_shape();
         };
       };
     };

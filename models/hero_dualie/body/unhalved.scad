@@ -49,7 +49,7 @@ module hero_dualie_body_unhalved() {
       // A hole for the barrel.
       rotate([0, -90, 0]) {
         cylinder(
-          d = hero_dualie_barrel_diameter + loose_tolerance,
+          d = hero_dualie_barrel_diameter + loose_tolerance * 2,
           h = hero_dualie_barrel_connector_length + 0.001,
           $fn = cylinder_sides(hero_dualie_barrel_diameter)
         );

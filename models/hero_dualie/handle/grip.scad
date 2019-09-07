@@ -35,7 +35,7 @@ module hero_dualie_handle_grip() {
         back_y = (back_diameter - hero_dualie_handle_length) / 2 + pow(progress, 1.6) * hero_dualie_handle_bottom_back_x,
         slice_front = [for (point = front_points) [point[0] * front_diameter, point[1] * front_diameter + front_y]],
         slice_back = [for (point = back_points) [point[0] * back_diameter, point[1] * back_diameter + back_y]],
-        slice = concat(slice_front, slice_back)
+        slice = concat(slice_back, slice_front)
       )
         [for (vertex = slice) [vertex[0], vertex[1], z]]
   ];
@@ -48,7 +48,7 @@ module hero_dualie_handle_grip() {
 
   merge_slice_back = [for (point = back_points) [point[0] * hero_dualie_handle_merge_diameter, point[1] * hero_dualie_handle_merge_diameter + merge_back_y, hero_dualie_handle_merge_back_y + hero_dualie_handle_height]];
 
-  merge_to_tube = [concat(merge_slice_front, merge_slice_back)];
+  merge_to_tube = [concat(merge_slice_back, merge_slice_front)];
 
   rings = concat(main_handle, merge_to_tube);
 

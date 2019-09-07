@@ -214,7 +214,7 @@ module hero_dualie_body_unhalved() {
         hero_dualie_body_handle_y + hero_dualie_body_handle_cap_height,
         0
       ]) {
-        rotate([-90, 0, 0]) {
+        rotate([-90, 90, 0]) {
           connectors_notched_circle_male(
             hero_dualie_body_handle_connector_diameter,
             hero_dualie_body_handle_connector_length,

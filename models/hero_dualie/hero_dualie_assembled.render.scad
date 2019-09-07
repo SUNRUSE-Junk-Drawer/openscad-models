@@ -7,6 +7,7 @@ use <body/right.scad>;
 use <handle/shape.scad>;
 use <fore/glow.scad>;
 use <fore/skew.scad>;
+use <fore/nut.scad>;
 use <safety/shape.scad>;
 use <trigger/shape.scad>;
 include <barrel/measurements.scad>;
@@ -49,6 +50,16 @@ translate([
   ]) {
     rotate([180 + hero_dualie_fore_angle, 0, 0]) {
       hero_dualie_fore_skew();
+        
+      translate([
+        0,
+        hero_dualie_fore_skew,
+        hero_dualie_fore_skew_length + hero_dualie_fore_length + hero_dualie_fore_funnel_length + hero_dualie_fore_nut_connector_length
+      ]) {
+        rotate([0, 180, 270]) {
+          hero_dualie_fore_nut();
+        };
+      };
     };
   };
 };

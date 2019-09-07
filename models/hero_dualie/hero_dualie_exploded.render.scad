@@ -7,6 +7,7 @@ use <body/right.scad>;
 use <handle/shape.scad>;
 use <fore/glow.scad>;
 use <fore/skew.scad>;
+use <fore/nut.scad>;
 use <safety/shape.scad>;
 use <trigger/shape.scad>;
 
@@ -29,6 +30,12 @@ translate([0, 20, -30]) {
 translate([0, 20, -75]) {
   rotate([180, 0, 0]) {
     hero_dualie_fore_skew();
+  };
+};
+
+translate([0, 10, -170]) {
+  rotate([0, 0, -90]) {
+    hero_dualie_fore_nut();
   };
 };
 

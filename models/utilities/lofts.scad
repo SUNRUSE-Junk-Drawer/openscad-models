@@ -7,7 +7,11 @@ module utilities_lofts_generate(
 ) {
   points = [for (ring = rings) for (vertex = ring) vertex];
 
-  bottom_cap = [[for (vertex = [1:len(rings[0])]) len(rings[0]) - vertex]];
+  bottom_cap = [for (vertex = [0:len(rings[0]) - 3]) [
+    0,
+    vertex + 2,
+    vertex + 1
+  ]];
 
   sides_a = [for (ring = [0:len(rings) - 2]) for (vertex = [0:len(rings[0]) - 1]) [
     (ring + 1) * len(rings[0]) + (vertex % (len(rings[0]))),
@@ -21,7 +25,11 @@ module utilities_lofts_generate(
   ]];
   sides = concat(sides_a, sides_b);
 
-  top_cap = [[for (vertex = [0:len(rings[0]) - 1]) (len(rings) - 1) * len(rings[0]) + vertex]];
+  top_cap = [for (vertex = [0:len(rings[0]) - 3]) [
+    (len(rings) - 1) * len(rings[0]),
+    (len(rings) - 1) * len(rings[0]) + vertex + 1,
+    (len(rings) - 1) * len(rings[0]) + vertex + 2
+  ]];
 
   faces = concat(bottom_cap, sides, top_cap);
 

@@ -3,15 +3,25 @@ use <../../utilities/cylinders.scad>;
 use <../../components/nut.scad>;
 use <../../connectors/notched_circle/male.scad>;
 include <measurements.scad>;
+include <../feed/measurements.scad>;
 
 module hero_dualie_fore_nut() {
-  components_nut(
-    hero_dualie_fore_nut_diameter,
-    hero_dualie_fore_nut_length,
-    hero_dualie_fore_nut_sides,
-    hero_dualie_fore_nut_horizontal_radiusing,
-    hero_dualie_fore_nut_vertical_radiusing
-  );
+  difference() {
+    components_nut(
+      hero_dualie_fore_nut_diameter,
+      hero_dualie_fore_nut_length,
+      hero_dualie_fore_nut_sides,
+      hero_dualie_fore_nut_horizontal_radiusing,
+      hero_dualie_fore_nut_vertical_radiusing
+    );
+
+    // The connector to the feed.
+    cylinder(
+      d = hero_dualie_feed_diameter + tight_tolerance,
+      h = hero_dualie_feed_connector_depth + loose_tolerance,
+      $fn = cylinder_sides(hero_dualie_feed_diameter)
+    );
+  };
 
   // The connector to the skew.
   translate([

@@ -1,4 +1,4 @@
-hero_dualie_safety_connector_diameter = 10;
+hero_dualie_safety_connector_diameter = 8;
 hero_dualie_safety_connector_length = 5;
 hero_dualie_safety_connector_notches = 2;
 

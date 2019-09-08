@@ -44,11 +44,14 @@ module hero_dualie_handle_grip() {
   merge_back_y = (hero_dualie_handle_merge_diameter - hero_dualie_handle_length) / 2 + hero_dualie_handle_bottom_back_x;
 
   merge_slice_front = [for (point = front_points) [point[0] * hero_dualie_handle_merge_diameter, point[1] *
-    hero_dualie_handle_merge_diameter + merge_front_y, hero_dualie_handle_merge_back_y + hero_dualie_handle_height]];
+    hero_dualie_handle_merge_diameter + merge_front_y]];
 
-  merge_slice_back = [for (point = back_points) [point[0] * hero_dualie_handle_merge_diameter, point[1] * hero_dualie_handle_merge_diameter + merge_back_y, hero_dualie_handle_merge_back_y + hero_dualie_handle_height]];
+  merge_slice_back = [for (point = back_points) [point[0] * hero_dualie_handle_merge_diameter, point[1] * hero_dualie_handle_merge_diameter + merge_back_y]];
 
-  merge_to_tube = [concat(merge_slice_back, merge_slice_front)];
+  bottom_back = hero_dualie_handle_length / -2 + hero_dualie_handle_bottom_back_x;
+  bottom_front = hero_dualie_handle_length / 2 + hero_dualie_handle_bottom_front_x;
+
+  merge_to_tube = [[for (point = concat(merge_slice_back, merge_slice_front)) [point[0], point[1], hero_dualie_handle_height + remap(point[1], bottom_back, bottom_front, hero_dualie_handle_merge_back_y, hero_dualie_handle_merge_front_y)] ]];
 
   rings = concat(main_handle, merge_to_tube);
 
@@ -56,3 +59,5 @@ module hero_dualie_handle_grip() {
     rings
   );
 };
+
+hero_dualie_handle_grip();

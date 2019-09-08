@@ -11,6 +11,7 @@ use <fore/nut.scad>;
 use <feed/shape.scad>;
 use <safety/shape.scad>;
 use <trigger/shape.scad>;
+use <tube/nut.scad>;
 
 translate([60, 110, -60]) {
   rotate([90 , 0, 90]) {
@@ -43,6 +44,12 @@ translate([0, 10, -170]) {
 translate([0, 10, -190]) {
   rotate([-90, 0, 90]) {
     hero_dualie_feed_shape();
+  };
+};
+
+translate([0, 80, -240]) {
+  rotate([-90, 90, 0]) {
+    hero_dualie_tube_nut();
   };
 };
 

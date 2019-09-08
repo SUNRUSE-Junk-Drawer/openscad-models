@@ -11,11 +11,14 @@ use <fore/nut.scad>;
 use <feed/shape.scad>;
 use <safety/shape.scad>;
 use <trigger/shape.scad>;
+use <tube/nut.scad>;
 include <barrel/measurements.scad>;
 include <muffler/measurements.scad>;
 include <muzzle/measurements.scad>;
 include <body/measurements.scad>;
 include <fore/measurements.scad>;
+include <feed/measurements.scad>;
+include <tube/measurements.scad>;
 
 translate([
   hero_dualie_body_thickness / 2,
@@ -62,6 +65,17 @@ translate([
         };
         rotate([90, 0, 270]) {
             hero_dualie_feed_shape();
+        };
+        translate([
+          0,
+          -hero_dualie_feed_x,
+          hero_dualie_feed_y
+        ]) {
+          rotate([90, 90, 0]) {
+            rotate([0, -hero_dualie_feed_angle, 0]) {
+              hero_dualie_tube_nut();
+            }
+          };
         };
       };
     };

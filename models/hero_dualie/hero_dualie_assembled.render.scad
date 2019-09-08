@@ -12,6 +12,7 @@ use <feed/shape.scad>;
 use <safety/shape.scad>;
 use <trigger/shape.scad>;
 use <tube/nut.scad>;
+use <tube/main.scad>;
 include <barrel/measurements.scad>;
 include <muffler/measurements.scad>;
 include <muzzle/measurements.scad>;
@@ -74,6 +75,11 @@ translate([
           rotate([90, 90, 0]) {
             rotate([0, -hero_dualie_feed_angle, 0]) {
               hero_dualie_tube_nut();
+              translate([0, 0, hero_dualie_tube_nut_length]) {
+                rotate([0, 0, 90]) {
+                  hero_dualie_tube_main();
+                };
+              };
             }
           };
         };

@@ -24,9 +24,9 @@ module frame(settings) {
   greatest_inlay_protrusion_depth_mm = max([ for (inlay = inlays) inlay_protrusion_depth_mm(inlay) ]);
 
   inlay_width_mm = max(glazing_width_mm, backing_width_mm);
-  width_mm = inlay_width_mm + border_thickness_mm * 2;
+  width_mm = inlay_width_mm + border_thickness_mm * 2 - glazing_lip_thickness_mm() * 2;
   inlay_height_mm = max(glazing_height_mm, backing_height_mm);
-  height_mm = inlay_height_mm + border_thickness_mm * 2;
+  height_mm = inlay_height_mm + border_thickness_mm * 2 - glazing_lip_thickness_mm() * 2;
   depth_mm =
     backing_lip_depth_mm()
     + backing_depth_mm

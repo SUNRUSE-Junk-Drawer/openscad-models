@@ -42,16 +42,16 @@ module inlay(settings) {
     };
 
     translate([
-      inlay_width_mm / -2 + glazing_lip_thickness_mm(),
-      inlay_height_mm / -2 + glazing_lip_thickness_mm(),
+      inlay_width_mm / -2 + glazing_lip_thickness_mm() - inlay_side_tolerance_mm(),
+      inlay_height_mm / -2 + glazing_lip_thickness_mm() - inlay_side_tolerance_mm(),
       backing_lip_depth_mm()
         + backing_depth_mm
         + inlay_bottom_depth_mm()
         + greatest_inlay_embed_depth_mm,
     ]) {
       cube([
-        inlay_width_mm - glazing_lip_thickness_mm() * 2,
-        inlay_height_mm - glazing_lip_thickness_mm() * 2,
+        inlay_width_mm - glazing_lip_thickness_mm() * 2 + inlay_side_tolerance_mm() * 2,
+        inlay_height_mm - glazing_lip_thickness_mm() * 2 + inlay_side_tolerance_mm() * 2,
         greatest_inlay_protrusion_depth_mm + inlay_top_clearance_mm(),
       ]);
     };

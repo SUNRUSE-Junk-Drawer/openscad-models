@@ -1,7 +1,7 @@
 use <../../utilities/dictionary_get.scad>;
 
 width_mm = 58;
-height_mm = 67;
+height_mm = 66;
 
 notch_width_mm = 5.175;
 notch_height_mm = 3;

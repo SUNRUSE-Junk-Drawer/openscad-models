@@ -1,7 +1,11 @@
 use <../../utilities/dictionary_get.scad>;
 
-function nintendo_game_boy_cartridge_c_inlay_embed_width_mm() = 57.5;
-function nintendo_game_boy_cartridge_c_inlay_embed_height_mm() = 66.25;
+width_mm = 58;
+height_mm = 66;
+
+retainer_width_mm = 51;
+retainer_depth_offset_mm = 1.5;
+retainer_height_mm = 3;
 
 /**
  * A Nintendo Game Boy cartridge which does NOT have a notch in the top right
@@ -28,15 +32,33 @@ function nintendo_game_boy_cartridge_c_inlay(settings) =
   ];
 
 module nintendo_game_boy_cartridge_c_inlay(settings, inlay, embed_depth_mm) {
-  translate([
-    nintendo_game_boy_cartridge_c_inlay_embed_width_mm() / -2,
-    nintendo_game_boy_cartridge_c_inlay_embed_height_mm() / -2,
-    -embed_depth_mm,
-  ]) {
-    cube([
-      nintendo_game_boy_cartridge_c_inlay_embed_width_mm(),
-      nintendo_game_boy_cartridge_c_inlay_embed_height_mm(),
-      embed_depth_mm,
-    ]);
+  difference() {
+    translate([
+      width_mm / -2,
+      height_mm / -2,
+      -embed_depth_mm,
+    ]) {
+      cube([
+        width_mm,
+        height_mm,
+        embed_depth_mm,
+      ]);
+    };
+
+    translate([
+      retainer_width_mm / -2,
+      height_mm / -2,
+      retainer_depth_offset_mm - embed_depth_mm,
+    ]) {
+      rotate([0, 90, 0]) {
+        linear_extrude(retainer_width_mm) {
+          polygon([
+            [0, 0],
+            [retainer_depth_offset_mm - embed_depth_mm, retainer_height_mm],
+            [retainer_depth_offset_mm - embed_depth_mm, 0],
+          ]);
+        };
+      };
+    };
   };
 };

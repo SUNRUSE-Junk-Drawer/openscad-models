@@ -6,6 +6,10 @@ height_mm = 66;
 notch_width_mm = 5.175;
 notch_height_mm = 3;
 
+retainer_width_mm = 51;
+retainer_depth_offset_mm = 1.5;
+retainer_height_mm = 3;
+
 /**
  * A Nintendo Game Boy cartridge which has a notch in the top right corner,
  * compatible with the DMG, MGB, CGB, AGB and AGS models.
@@ -31,18 +35,36 @@ function nintendo_game_boy_cartridge_a_or_b_inlay(settings) =
   ];
 
 module nintendo_game_boy_cartridge_a_or_b_inlay(settings, inlay, embed_depth_mm) {
-  translate([0, 0, -embed_depth_mm]) {
-    linear_extrude(embed_depth_mm) {
-      difference() {
-        translate([width_mm / -2, height_mm / -2]) {
-          square([width_mm, height_mm]);
-        };
+  difference() {
+    translate([0, 0, -embed_depth_mm]) {
+      linear_extrude(embed_depth_mm) {
+        difference() {
+          translate([width_mm / -2, height_mm / -2]) {
+            square([width_mm, height_mm]);
+          };
 
-        translate([
-          width_mm / 2 - notch_width_mm,
-          height_mm / 2 - notch_height_mm,
-        ]) {
-          square([notch_width_mm, notch_height_mm]);
+          translate([
+            width_mm / 2 - notch_width_mm,
+            height_mm / 2 - notch_height_mm,
+          ]) {
+            square([notch_width_mm, notch_height_mm]);
+          };
+        };
+      };
+    };
+
+    translate([
+      retainer_width_mm / -2,
+      height_mm / -2,
+      retainer_depth_offset_mm - embed_depth_mm,
+    ]) {
+      rotate([0, 90, 0]) {
+        linear_extrude(retainer_width_mm) {
+          polygon([
+            [0, 0],
+            [retainer_depth_offset_mm - embed_depth_mm, retainer_height_mm],
+            [retainer_depth_offset_mm - embed_depth_mm, 0],
+          ]);
         };
       };
     };

@@ -3,7 +3,7 @@ use <../inlay.scad>;
 use <../glazings/a5_glazing.scad>;
 use <../backings/a5_backing.scad>;
 use <../borders/rounded_flat_border.scad>;
-use <../inlays/nintendo_game_boy_cartridge_a_or_b_inlay.scad>;
+use <../inlays/nintendo_game_boy_cartridge_inlay.scad>;
 use <../../utilities/slice_x.scad>;
 
 settings = [
@@ -18,7 +18,7 @@ settings = [
   ],
   [
     "inlays", [
-      nintendo_game_boy_cartridge_a_or_b_inlay([
+      nintendo_game_boy_cartridge_inlay([
         [
           "origin", [
             ["x_mm", -37.5],
@@ -26,7 +26,7 @@ settings = [
           ],
         ],
       ]),
-      nintendo_game_boy_cartridge_a_or_b_inlay([
+      nintendo_game_boy_cartridge_inlay([
         [
           "origin", [
             ["x_mm", 37.5],

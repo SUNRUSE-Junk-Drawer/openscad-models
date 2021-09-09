@@ -1,7 +1,6 @@
 use <../utilities/dictionary_get.scad>;
 use <inlays/nintendo_ds_game_card_inlay.scad>;
-use <inlays/nintendo_game_boy_cartridge_a_or_b_inlay.scad>;
-use <inlays/nintendo_game_boy_cartridge_c_inlay.scad>;
+use <inlays/nintendo_game_boy_cartridge_inlay.scad>;
 use <utilities/inlay_embed_depth_mm.scad>;
 use <utilities/inlay_protrusion_depth_mm.scad>;
 use <utilities/settings.scad>;
@@ -79,10 +78,8 @@ module inlay(settings) {
           origin_y_mm,
           0,
         ]) {
-          if (inlay_type == "nintendo_game_boy_cartridge_a_or_b") {
-            nintendo_game_boy_cartridge_a_or_b_inlay(settings, inlay, embed_depth_mm);
-          } else if (inlay_type == "nintendo_game_boy_cartridge_c") {
-            nintendo_game_boy_cartridge_c_inlay(settings, inlay, embed_depth_mm);
+          if (inlay_type == "nintendo_game_boy_cartridge") {
+            nintendo_game_boy_cartridge_inlay(settings, inlay, embed_depth_mm);
           } else if (inlay_type == "nintendo_ds_game_card") {
             translate([
               nintendo_ds_game_card_inlay_width_mm() / -2,

@@ -8,20 +8,20 @@ retainer_depth_offset_mm = 1.5;
 retainer_height_mm = 3;
 
 /**
- * A Nintendo Game Boy cartridge which does NOT have a notch in the top right
- * corner, compatible with the CGB, AGB and AGS models.
+ * A Nintendo Game Boy cartridge, compatible with the DMG, MGB, CGB, AGB and AGS
+ * models.
  * @param An array representing a dictionary, containing:
  *        - origin
  *          - x_mm - The origin of the inlay on the X axis, in millimeters.
  *          - y_mm - The origin of the inlay on the Y axis, in millimeters.
  * @return An array describing the inlay.
  */
-function nintendo_game_boy_cartridge_c_inlay(settings) =
+function nintendo_game_boy_cartridge_inlay(settings) =
   let (origin = dictionary_get(settings, "origin"))
   let (origin_x_mm = dictionary_get(origin, "x_mm"))
   let (origin_y_mm = dictionary_get(origin, "y_mm"))
   [
-    ["type", "nintendo_game_boy_cartridge_c"],
+    ["type", "nintendo_game_boy_cartridge"],
     [
       "origin",
       [
@@ -31,7 +31,7 @@ function nintendo_game_boy_cartridge_c_inlay(settings) =
     ],
   ];
 
-module nintendo_game_boy_cartridge_c_inlay(settings, inlay, embed_depth_mm) {
+module nintendo_game_boy_cartridge_inlay(settings, inlay, embed_depth_mm) {
   difference() {
     translate([
       width_mm / -2,

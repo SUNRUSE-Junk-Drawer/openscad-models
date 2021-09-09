@@ -12,7 +12,7 @@ function inlay_protrusion_depth_mm(inlay) = dictionary_get
   [
     ["nintendo_3ds_game_card", 1.3],
     ["nintendo_ds_game_card", 1.3],
-    ["nintendo_game_boy_cartridge_a_or_b", 4],
+    ["nintendo_game_boy_cartridge", 4],
     ["nintendo_game_boy_cartridge_c", 5],
   ],
   dictionary_get(inlay, "type")

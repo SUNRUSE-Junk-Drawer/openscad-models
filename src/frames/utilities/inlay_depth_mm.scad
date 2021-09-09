@@ -7,13 +7,12 @@ use <../../utilities/dictionary_get.scad>;
  * @return      The depth (in millimeters) to which the inlay should protrude
  *              from the frame.
  */
-function inlay_protrusion_depth_mm(inlay) = dictionary_get
+function inlay_depth_mm(inlay) = dictionary_get
 (
   [
-    ["nintendo_3ds_game_card", 1.3],
-    ["nintendo_ds_game_card", 1.3],
-    ["nintendo_game_boy_cartridge", 4],
-    ["nintendo_game_boy_cartridge_c", 5],
+    ["nintendo_3ds_game_card", 3.8],
+    ["nintendo_ds_game_card", 3.8],
+    ["nintendo_game_boy_cartridge", 8.5],
   ],
   dictionary_get(inlay, "type")
 );

@@ -1,6 +1,5 @@
 use <../utilities/dictionary_get.scad>;
-use <utilities/inlay_embed_depth_mm.scad>;
-use <utilities/inlay_protrusion_depth_mm.scad>;
+use <utilities/inlay_depth_mm.scad>;
 use <utilities/settings.scad>;
 
 module frame(settings) {
@@ -20,8 +19,7 @@ module frame(settings) {
 
   inlays = dictionary_get(settings, "inlays");
 
-  greatest_inlay_embed_depth_mm = max([ for (inlay = inlays) inlay_embed_depth_mm(inlay) ]);
-  greatest_inlay_protrusion_depth_mm = max([ for (inlay = inlays) inlay_protrusion_depth_mm(inlay) ]);
+  greatest_inlay_depth_mm = max([ for (inlay = inlays) inlay_depth_mm(inlay) ]);
 
   inlay_width_mm = max(glazing_width_mm, backing_width_mm);
   width_mm = inlay_width_mm + border_thickness_mm * 2 - glazing_lip_thickness_mm() * 2;
@@ -31,8 +29,7 @@ module frame(settings) {
     backing_lip_depth_mm()
     + backing_depth_mm
     + inlay_bottom_depth_mm()
-    + greatest_inlay_embed_depth_mm
-    + greatest_inlay_protrusion_depth_mm
+    + greatest_inlay_depth_mm
     + inlay_top_clearance_mm()
     + glazing_depth_mm
     + glazing_lip_depth_mm();
@@ -151,8 +148,7 @@ module frame(settings) {
         backing_width_mm,
         backing_height_mm,
         inlay_bottom_depth_mm()
-          + greatest_inlay_embed_depth_mm
-          + greatest_inlay_protrusion_depth_mm
+          + greatest_inlay_depth_mm
           + inlay_top_clearance_mm(),
       ]);
     };

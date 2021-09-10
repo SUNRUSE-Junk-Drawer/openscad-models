@@ -12,8 +12,8 @@ settings = [
   [
     "border",
     rounded_flat_border([
-      ["thickness_mm", 12.5],
-      ["sides", 64],
+      ["thickness_mm", 17.5],
+      ["sides", 256],
     ]),
   ],
   [

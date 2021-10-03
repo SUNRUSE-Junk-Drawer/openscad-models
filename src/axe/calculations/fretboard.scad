@@ -9,8 +9,8 @@
 function degrees_around_fretboard_radius_origin(fretboard_radius_mm, x_mm) = asin(x_mm / fretboard_radius_mm);
 
 /**
- * Calculates the Y position of a point on the X axis around the origin of the
- * fretboard radius.
+ * Calculates the Z position of a point on the X axis around the origin of the
+ * fretboard radius, in millimeters.
  * @param fretboard_radius_mm The radius of the fretboard, in millimeters.
  * @param radius_offset_mm    An offset above the fretboard, in millimeters.
  * @param body_thickness_mm   The thickness of the body, in millimeters.
@@ -18,7 +18,7 @@ function degrees_around_fretboard_radius_origin(fretboard_radius_mm, x_mm) = asi
  * @return                    The angle of the given point on the X axis around
  *                            the origin of the fretboard radius.
  */
-function y_mm_over_fretboard_radius_origin(fretboard_radius_mm, radius_offset_mm, body_thickness_mm, x_mm) = cos(degrees_around_fretboard_radius_origin(fretboard_radius_mm, x_mm)) * (fretboard_radius_mm + radius_offset_mm) + body_thickness_mm - fretboard_radius_mm;
+function z_mm_over_fretboard_radius_origin(fretboard_radius_mm, radius_offset_mm, body_thickness_mm, x_mm) = cos(degrees_around_fretboard_radius_origin(fretboard_radius_mm, x_mm)) * (fretboard_radius_mm + radius_offset_mm) + body_thickness_mm - fretboard_radius_mm;
 
 /**
  * Generates an array of 2D points representing a cross section of the neck,
@@ -44,6 +44,6 @@ function fretboard_cross_section(
     include_corners ? 0 : 1 : fretboard_sides - (include_corners ? 0 : 1)
   ]) let (x_mm = ((point_index / fretboard_sides) - 0.5) * neck_width_mm) [
     x_mm,
-    y_mm_over_fretboard_radius_origin(fretboard_radius_mm, 0, body_thickness_mm, x_mm),
+    z_mm_over_fretboard_radius_origin(fretboard_radius_mm, 0, body_thickness_mm, x_mm),
   ]
 ];

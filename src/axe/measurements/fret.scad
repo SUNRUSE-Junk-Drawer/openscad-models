@@ -10,5 +10,5 @@ fret_zero_and_bridge_offset_mm = 1;
 // The number of (non-zero or bridge) frets.
 fret_count = 16;
 
-// The distance between the middle of the zero fret and the middle of the bridge fret.
+// The distance between the middle of the zero fret and the middle of the bridge fret, in millimeters.
 scale_length_mm = 700;

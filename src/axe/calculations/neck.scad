@@ -27,7 +27,7 @@ function neck_cross_section(
 ) = [
   for (point_index = [0 : neck_sides]) [
     cos(point_index * 180 / neck_sides) * neck_width_mm / 2,
-    y_mm_over_fretboard_radius_origin(fretboard_radius_mm, 0, body_thickness_mm, neck_width_mm / 2) - pow(sin(point_index * 180 / neck_sides), neck_shape) * neck_thickness_mm
+    z_mm_over_fretboard_radius_origin(fretboard_radius_mm, 0, body_thickness_mm, neck_width_mm / 2) - pow(sin(point_index * 180 / neck_sides), neck_shape) * neck_thickness_mm
   ]
 ];
 

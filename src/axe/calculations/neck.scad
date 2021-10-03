@@ -18,7 +18,7 @@ function neck_cross_section(
   neck_shape
 ) = [
   for (point_index = [0 : neck_sides]) [
-    cos(point_index * 180 / neck_sides) * neck_width_mm,
+    cos(point_index * 180 / neck_sides) * neck_width_mm / 2,
     pow(sin(point_index * 180 / neck_sides), neck_shape) * -neck_thickness_mm
   ]
 ];

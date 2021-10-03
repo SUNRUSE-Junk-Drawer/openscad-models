@@ -77,17 +77,7 @@ module inlay(settings) {
         if (inlay_type == "nintendo_game_boy_cartridge") {
           nintendo_game_boy_cartridge_inlay(settings, inlay, embed_depth_mm);
         } else if (inlay_type == "nintendo_ds_game_card") {
-          translate([
-            nintendo_ds_game_card_inlay_width_mm() / -2,
-            nintendo_ds_game_card_inlay_height_mm() / -2,
-            -embed_depth_mm,
-          ]) {
-            cube([
-              nintendo_ds_game_card_inlay_width_mm(),
-              nintendo_ds_game_card_inlay_height_mm(),
-              embed_depth_mm,
-            ]);
-          };
+          nintendo_ds_cartridge_inlay(settings, inlay, embed_depth_mm);
         } else {
           assert(false, "Unexpected inlay type");
         };

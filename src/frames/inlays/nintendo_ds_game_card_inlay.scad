@@ -1,7 +1,19 @@
 use <../../utilities/dictionary_get.scad>;
 
-function nintendo_ds_game_card_inlay_width_mm() = 34;
-function nintendo_ds_game_card_inlay_height_mm() = 36;
+width_mm = 34;
+height_mm = 35.5;
+depth_mm = 3.8;
+
+side_retainer_height_mm = 10;
+side_retainer_width_mm = 2;
+side_retainer_lip_width_mm = 1;
+side_retainer_lip_depth_mm = 1.2;
+
+bottom_retainer_height_mm = 1;
+
+top_retainer_width_mm = 15;
+top_retainer_height_mm = 2;
+top_retainer_depth_mm = 1.5;
 
 /**
  * A Nintendo DS game card (without the Nintendo 3DS tab).  Compatible with the
@@ -27,3 +39,55 @@ function nintendo_ds_game_card_inlay(settings) =
       ],
     ],
   ];
+
+module nintendo_ds_cartridge_inlay(settings, inlay, embed_depth_mm) {
+  difference() {
+    translate([
+      (side_retainer_width_mm + width_mm + side_retainer_width_mm) / -2,
+      height_mm / -2 - bottom_retainer_height_mm,
+      0,
+    ]) {
+      cube([
+        side_retainer_width_mm + width_mm + side_retainer_width_mm,
+        bottom_retainer_height_mm + side_retainer_height_mm,
+        depth_mm + side_retainer_lip_depth_mm,
+      ]);
+    };
+
+    translate([
+      width_mm / -2,
+      height_mm / -2,
+      0,
+    ]) {
+      cube([
+        width_mm,
+        bottom_retainer_height_mm + side_retainer_height_mm,
+        depth_mm,
+      ]);
+    };
+
+    translate([
+      width_mm / -2 + side_retainer_lip_width_mm,
+      height_mm / -2,
+      depth_mm,
+    ]) {
+      cube([
+        width_mm - side_retainer_lip_width_mm * 2,
+        bottom_retainer_height_mm + side_retainer_height_mm,
+        side_retainer_lip_depth_mm,
+      ]);
+    };
+  };
+
+  translate([
+    top_retainer_width_mm / -2,
+    height_mm / 2,
+    0,
+  ]) {
+    cube([
+      top_retainer_width_mm,
+      top_retainer_height_mm,
+      top_retainer_depth_mm,
+    ]);
+  };
+};

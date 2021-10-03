@@ -1,11 +1,8 @@
 /**
- * Calculates an array of the distances between the middle of the zero fret and
-   the middles of every other non-bridge fret.
+ * Calculates the position of the center of a fret on the Y axis.
  * @param scale_length_mm The distance between the middle of the zero fret and
  *                        the middle of the bridge fret.
- * @param fret_count      The number of (non-zero or bridge) frets.
- * @return                An array of the distances between the middle of the
- *                        zero fret and the middles of every other non-bridge
- *                        fret.
+ * @param fret_index      The number of the fret.
+ * @return                The position of the center of the fret on the Y axis.
  */
-function fret_positions(scale_length_mm, fret_count) = [for (fret_index = [1 : fret_count]) scale_length_mm - (scale_length_mm / pow(2, fret_index / 12))];
+function fret_y_mm(scale_length_mm, fret_index) = scale_length_mm / -2 + (scale_length_mm / pow(2, fret_index / 12));

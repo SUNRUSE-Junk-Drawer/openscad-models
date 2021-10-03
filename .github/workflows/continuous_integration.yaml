@@ -1,0 +1,23 @@
+on: [push]
+
+jobs:
+  continuous_integration:
+    runs-on: ubuntu-20.04
+    env:
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    steps:
+    - uses: actions/checkout@v2
+    - run: sudo apt-get install openscad -y
+    - run: ./scripts/generate_all.sh
+    - uses: rymndhng/release-on-push-action@v0.22.0
+      if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/master' }}
+      id: create_release
+      with:
+        bump_version_scheme: minor
+    - uses: softprops/action-gh-release@v1
+      if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/master' }}
+      with:
+        files: |
+          **/*.stl
+          **/*.png
+        tag_name: ${{ steps.create_release.outputs.tag_name }}

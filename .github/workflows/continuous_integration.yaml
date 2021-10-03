@@ -8,7 +8,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - run: sudo apt-get install openscad -y
-    - run: ./scripts/generate_all.sh
+    - run: xvfb-run ./scripts/generate_all.sh
     - uses: rymndhng/release-on-push-action@v0.22.0
       if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/master' }}
       id: create_release

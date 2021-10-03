@@ -14,4 +14,4 @@ function fret_y_mm(scale_length_mm, fret_index) = scale_length_mm / -2 + (scale_
  * @return                The position of the center of the bridge fret on the Y
  *                        axis.
  */
-function fret_bridge_y_mm(scale_length_mm) = scale_length_mm / 2;
+function fret_bridge_y_mm(scale_length_mm) = scale_length_mm / -2;

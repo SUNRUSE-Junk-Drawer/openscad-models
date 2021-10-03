@@ -12,3 +12,9 @@ fret_count = 16;
 
 // The distance between the middle of the zero fret and the middle of the bridge fret, in millimeters.
 scale_length_mm = 700;
+
+// The height of a fret's tang, in millimeters.
+fret_tang_height_mm = 2;
+
+// The width of a fret's tang, in millimeters.
+fret_tang_width_mm = 0.51;

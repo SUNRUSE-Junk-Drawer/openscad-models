@@ -13,11 +13,13 @@ module line_3d(from_mm, to_mm, diameter_mm, sides) {
   difference_mm = to_mm - from_mm;
   distance_mm = distance_3d(from_mm, to_mm);
 
-  rotate([
-    0,
-    acos(difference_mm[2] / distance_mm),
-    atan2(difference_mm[1], difference_mm[0]),
-  ]) {
-    cylinder(d = diameter_mm, h = distance_mm, $fn = sides);
+  translate(from_mm) {
+    rotate([
+      0,
+      acos(difference_mm[2] / distance_mm),
+      atan2(difference_mm[1], difference_mm[0]),
+    ]) {
+      cylinder(d = diameter_mm, h = distance_mm, $fn = sides);
+    };
   };
 };

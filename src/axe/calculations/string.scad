@@ -57,7 +57,8 @@ function string_x_mm(
  *                                       millimeters.
  * @param body_thickness_mm              The thickness of the body, in
  *                                       millimeters.
- * @return
+ * @return                               The position of the string on the Z
+ *                                       axis in millimeters.
  */
 function string_z_mm(
   y_mm,

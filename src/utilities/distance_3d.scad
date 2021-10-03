@@ -4,7 +4,7 @@
  *                    measure, in millimeters.
  * @param to_mm       An array containing the X, Y and Z of the second point to
  *                    measure, in millimeters.
- * @return            The
+ * @return            The distance between the two given points, in millimeters.
  */
 function distance_3d(from_mm, to_mm) =
   let(difference_mm = to_mm - from_mm)

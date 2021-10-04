@@ -5,8 +5,8 @@ use <../../calculations/truss_rod.scad>;
 
 translate([
   0,
-  truss_rod_length_mm / -2,
-  truss_rod_z(
+  truss_rod_y_mm() - truss_rod_length_mm() / 2,
+  truss_rod_z_mm(
     truss_rod_cutout_diameter_mm,
     body_thickness_mm,
     fret_tang_height_mm
@@ -15,8 +15,8 @@ translate([
   rotate([-90, 0, 0]) {
     cylinder(
       d = truss_rod_diameter_mm,
-      h = truss_rod_length_mm,
+      h = truss_rod_length_mm(),
       $fn = truss_rod_sides
     );
   };
-}
+};

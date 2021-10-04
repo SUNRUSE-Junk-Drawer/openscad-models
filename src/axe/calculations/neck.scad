@@ -55,7 +55,7 @@ function neck_interpolate(
   at_last_non_bridge,
   y_mm,
   shape
-) = echo(y_mm - fret_y_mm(scale_length_mm, 0)) linear_interpolate(
+) = linear_interpolate(
   at_zero,
   at_last_non_bridge,
   pow(max(0, min(1, (fret_y_mm(scale_length_mm, 0) - y_mm) / (fret_y_mm(scale_length_mm, 0) - fret_y_mm(scale_length_mm, fret_count)))), shape)

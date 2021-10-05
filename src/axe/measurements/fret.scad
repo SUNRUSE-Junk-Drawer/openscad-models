@@ -30,7 +30,7 @@ fret_tang_margin_mm = 3;
 
 // The amount of "trim" either side of a fret before the tang cutout, in
 // millimeters.
-fret_tang_cutout_margin_mm = 3;
+fret_tang_cutout_margin_mm = 2.9;
 
 // The gap either side of a fret, in millimeters.
 fret_spacing_mm = 0.25;

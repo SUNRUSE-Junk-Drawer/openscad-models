@@ -57,3 +57,76 @@ function fret_cutout_cross_section(
     ]
   ]
 );
+
+/**
+ * Generates an array of 2D points representing a cross section of a fret head,
+ * running clockwise.
+ * @param fretboard_radius_mm The radius of the fretboard, in millimeters.
+ * @param fretboard_sides     The number of sides of the fretboard.
+ * @param neck_width_mm       The width of the neck at the cross section.
+ * @param body_thickness_mm   The thickness of the body, in millimeters.
+ * @param fret_height_mm      The height of frets (how far they stick out of the
+ *                            fretboard), in millimeters.
+ * @return                    An array of 2D points representing a cross section
+ *                            of the fretboard on a fret, running clockwise.
+ */
+function fret_head_cross_section(
+  fretboard_radius_mm,
+  fretboard_sides,
+  neck_width_mm,
+  body_thickness_mm,
+  fret_height_mm,
+) = concat(
+  [
+    for (point_index = [0 : fretboard_sides])
+    let (x_mm = ((point_index / fretboard_sides) - 0.5) * neck_width_mm) [
+      x_mm,
+      z_mm_over_fretboard_radius_origin(fretboard_radius_mm, fret_height_mm, body_thickness_mm, x_mm),
+    ]
+  ],
+  [
+    for (point_index = [0 : fretboard_sides])
+    let (x_mm = ((point_index / fretboard_sides) - 0.5) * -neck_width_mm) [
+      x_mm,
+      z_mm_over_fretboard_radius_origin(fretboard_radius_mm, 0.01, body_thickness_mm, x_mm),
+    ]
+  ]
+);
+
+/**
+ * Generates an array of 2D points representing a cross section of the
+ * fretboard on a fret, running clockwise.
+ * @param fretboard_radius_mm    The radius of the fretboard, in millimeters.
+ * @param fretboard_sides        The number of sides of the fretboard.
+ * @param neck_width_mm          The width of the neck at the cross section.
+ * @param body_thickness_mm      The thickness of the body, in millimeters.
+ * @param fret_tang_height_mm    The height of a fret's tang, in millimeters.
+ * @param fret_tang_margin_mm    The amount of tang cut away from either side of
+ *                               a fret, in millimeters.
+ * @return                       An array of 2D points representing a cross
+ *                               section of the fretboard on a fret, running
+ *                               clockwise.
+ */
+function fret_tang_cross_section(
+  fretboard_radius_mm,
+  fretboard_sides,
+  neck_width_mm,
+  body_thickness_mm,
+  fret_tang_height_mm,
+  fret_tang_margin_mm,
+) = concat(
+  [
+    for (point_index = [0 : fretboard_sides])
+    let (x_mm = ((point_index / fretboard_sides) - 0.5) * (neck_width_mm - fret_tang_height_mm * 2)) [
+      x_mm,
+      z_mm_over_fretboard_radius_origin(fretboard_radius_mm, 0.02, body_thickness_mm, x_mm),
+    ]
+  ],
+  [
+    for (point_index = [0 : fretboard_sides])
+    let (x_mm = ((point_index / fretboard_sides) - 0.5) * -(neck_width_mm - fret_tang_height_mm * 2)) [
+      x_mm,
+      z_mm_over_fretboard_radius_origin(fretboard_radius_mm, -fret_tang_height_mm, body_thickness_mm, x_mm),
+    ]
+  ]
+);

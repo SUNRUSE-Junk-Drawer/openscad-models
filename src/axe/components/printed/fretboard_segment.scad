@@ -7,6 +7,7 @@ include <../../measurements/fret.scad>;
 include <../../measurements/neck.scad>;
 include <../../measurements/fretboard.scad>;
 include <../../measurements/body.scad>;
+include <../../measurements/truss_rod.scad>;
 
 module printed_fretboard_segment(fret_index) {
   start_y_mm = fret_y_mm(scale_length_mm, fret_index + 1) + fret_thickness_mm / 2 + fret_spacing_mm;

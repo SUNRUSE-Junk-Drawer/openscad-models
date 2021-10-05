@@ -7,6 +7,7 @@ include <../../measurements/fret.scad>;
 include <../../measurements/neck.scad>;
 include <../../measurements/fretboard.scad>;
 include <../../measurements/body.scad>;
+include <../../measurements/truss_rod.scad>;
 
 module printed_fret(fret_index) {
   y_mm = fret_y_mm(scale_length_mm, fret_index);

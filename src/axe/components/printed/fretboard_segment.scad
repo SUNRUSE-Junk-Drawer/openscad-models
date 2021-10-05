@@ -9,7 +9,7 @@ include <../../measurements/fretboard.scad>;
 include <../../measurements/body.scad>;
 
 module printed_fretboard_segment(fret_index) {
-  start_y_mm = fret_y_mm(scale_length_mm, fret_index + 1) + fret_thickness_mm / 2;
+  start_y_mm = fret_y_mm(scale_length_mm, fret_index + 1) + fret_thickness_mm / 2 + fret_spacing_mm;
   start_neck_width_mm = neck_interpolate(
     scale_length_mm,
     fret_count,
@@ -35,7 +35,7 @@ module printed_fretboard_segment(fret_index) {
     1
   );
 
-  end_y_mm = fret_y_mm(scale_length_mm, fret_index) - fret_thickness_mm / 2;
+  end_y_mm = fret_y_mm(scale_length_mm, fret_index) - fret_thickness_mm / 2 - fret_spacing_mm;
   end_neck_width_mm = neck_interpolate(
     scale_length_mm,
     fret_count,

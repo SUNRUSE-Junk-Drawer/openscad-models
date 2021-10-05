@@ -18,3 +18,6 @@ fret_tang_height_mm = 2;
 
 // The width of a fret's tang, in millimeters.
 fret_tang_width_mm = 0.51;
+
+// The gap either side of a fret, in millimeters.
+fret_spacing_mm = 0.25;

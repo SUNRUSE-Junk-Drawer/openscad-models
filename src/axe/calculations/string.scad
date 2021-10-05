@@ -53,6 +53,8 @@ function string_x_mm(
  *                                       nut frets relative to all other frets
  *                                       (the string height/action), in
  *                                       millimeters.
+ * @param fret_height_mm                 The height of frets (how far they stick
+ *                                       out of the fretboard), in millimeters.
  * @param string_diameter_mm             The diameter of a string, in
  *                                       millimeters.
  * @param body_thickness_mm              The thickness of the body, in
@@ -69,11 +71,12 @@ function string_z_mm(
   string_spread_bridge_mm,
   fretboard_radius_mm,
   fret_zero_and_bridge_offset_mm,
+  fret_height_mm,
   string_diameter_mm,
   body_thickness_mm,
 ) = z_mm_over_fretboard_radius_origin(
   fretboard_radius_mm,
-  fret_zero_and_bridge_offset_mm + string_diameter_mm / 2,
+  fret_zero_and_bridge_offset_mm + fret_height_mm + string_diameter_mm / 2,
   body_thickness_mm,
   string_x_mm(
     y_mm,

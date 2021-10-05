@@ -30,6 +30,7 @@ for (string_index = [0 : string_count - 1]) {
         string_spread_bridge_mm,
         fretboard_radius_mm,
         fret_zero_and_bridge_offset_mm,
+        fret_height_mm,
         string_diameter_mm,
         body_thickness_mm
       ),
@@ -53,6 +54,7 @@ for (string_index = [0 : string_count - 1]) {
         string_spread_bridge_mm,
         fretboard_radius_mm,
         fret_zero_and_bridge_offset_mm,
+        fret_height_mm,
         string_diameter_mm,
         body_thickness_mm
       ),

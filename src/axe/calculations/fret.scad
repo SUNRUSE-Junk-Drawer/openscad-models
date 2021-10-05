@@ -117,14 +117,14 @@ function fret_tang_cross_section(
 ) = concat(
   [
     for (point_index = [0 : fretboard_sides])
-    let (x_mm = ((point_index / fretboard_sides) - 0.5) * (neck_width_mm - fret_tang_height_mm * 2)) [
+    let (x_mm = ((point_index / fretboard_sides) - 0.5) * (neck_width_mm - fret_tang_margin_mm * 2)) [
       x_mm,
       z_mm_over_fretboard_radius_origin(fretboard_radius_mm, 0.02, body_thickness_mm, x_mm),
     ]
   ],
   [
     for (point_index = [0 : fretboard_sides])
-    let (x_mm = ((point_index / fretboard_sides) - 0.5) * -(neck_width_mm - fret_tang_height_mm * 2)) [
+    let (x_mm = ((point_index / fretboard_sides) - 0.5) * -(neck_width_mm - fret_tang_margin_mm * 2)) [
       x_mm,
       z_mm_over_fretboard_radius_origin(fretboard_radius_mm, -fret_tang_height_mm, body_thickness_mm, x_mm),
     ]

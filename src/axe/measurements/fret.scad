@@ -14,7 +14,7 @@ fret_count = 16;
 scale_length_mm = 700;
 
 // The height of a fret's tang, in millimeters.
-fret_tang_height_mm = 2;
+fret_tang_height_mm = 1.9;
 
 // The height of the cutout for a fret's tang, in millimeters.
 fret_tang_cutout_height_mm = 2;

@@ -75,7 +75,7 @@ module printed_fretboard_segment(fret_index) {
             fretboard_cutout_margin_sides,
             fretboard_cutout_shape,
             truss_rod_cutout_diameter_mm,
-            fret_tang_height_mm
+              fret_tang_cutout_height_mm
           )) [xz_mm[0], start_y_mm, xz_mm[1]]
         ],
         [
@@ -100,7 +100,7 @@ module printed_fretboard_segment(fret_index) {
             fretboard_cutout_margin_sides,
             fretboard_cutout_shape,
             truss_rod_cutout_diameter_mm,
-            fret_tang_height_mm
+              fret_tang_cutout_height_mm
           )) [xz_mm[0], end_y_mm, xz_mm[1]]
         ],
         [
@@ -122,7 +122,7 @@ module printed_fretboard_segment(fret_index) {
       truss_rod_z_mm(
         truss_rod_cutout_diameter_mm,
         body_thickness_mm,
-        fret_tang_height_mm
+        fret_tang_cutout_height_mm
       ),
     ]) {
       rotate([-90, 0, 0]) {

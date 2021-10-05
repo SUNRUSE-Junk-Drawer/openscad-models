@@ -71,6 +71,10 @@ function fretboard_cross_section(
  *                                      - less than 1    = U-shaped.
  *                                      - equal to 1     = semi-circular.
  *                                      - greater than 1 = V-shaped.
+ * @param truss_rod_cutout_diameter_mm  The diameter of the truss rod cutout, in
+ *                                      millimeters.
+ * @param fret_tang_cutout_height_mm    The height of the cutout for a fret's
+ *                                      tang, in millimeters.
  * @return                              An array of 2D points representing a
  *                                      cross section of the fretboard between
  *                                      frets, running clockwise.
@@ -84,7 +88,7 @@ function fretboard_segment_cross_section(
   fretboard_cutout_margin_sides,
   fretboard_cutout_shape,
   truss_rod_cutout_diameter_mm,
-  fret_tang_height_mm,
+  fret_tang_cutout_height_mm,
 ) = [
   for (point_index = [
     include_corners ? 0 : 1 : fretboard_sides - (include_corners ? 0 : 1)
@@ -101,7 +105,7 @@ function fretboard_segment_cross_section(
         truss_rod_z_mm(
           truss_rod_cutout_diameter_mm,
           body_thickness_mm,
-          fret_tang_height_mm
+          fret_tang_cutout_height_mm
         ),
         pow(
           sin(180 * (point_index - fretboard_cutout_margin_sides) / (fretboard_sides - fretboard_cutout_margin_sides * 2)),

@@ -29,4 +29,4 @@ function truss_rod_z_mm(
   truss_rod_cutout_diameter_mm,
   body_thickness_mm,
   fret_tang_height_mm,
-) = body_thickness_mm - fret_tang_height_mm - truss_rod_cutout_diameter_mm / 2;
+) = body_thickness_mm - fret_tang_height_mm - truss_rod_cutout_diameter_mm / 2 -0.01;

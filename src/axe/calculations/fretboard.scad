@@ -32,7 +32,7 @@ function z_mm_over_fretboard_radius_origin(fretboard_radius_mm, radius_offset_mm
  * @param body_thickness_mm   The thickness of the body, in millimeters.
  * @param include_corners     When true, the first and final vertices (common
  *                            with the neck cross section) will be included.
- *                            They will otherwise be ommitted.
+ *                            They will otherwise be omitted.
  * @return                    An array of 2D points representing a cross section
  *                            of the fretboard on a fret, running clockwise.
  */
@@ -64,7 +64,7 @@ function fretboard_cross_section(
  * @param include_corners               When true, the first and final vertices
  *                                      (common with the neck cross section)
  *                                      will be included.  They will otherwise
- *                                      be ommitted.
+ *                                      be omitted.
  * @param fretboard_cutout_margin_sides The number of sides either side of
  *                                      fretboard cutouts.
  * @param fretboard_cutout_shape        The shape of fretboard cutouts, where:

@@ -16,8 +16,21 @@ scale_length_mm = 700;
 // The height of a fret's tang, in millimeters.
 fret_tang_height_mm = 2;
 
-// The width of a fret's tang, in millimeters.
-fret_tang_width_mm = 0.51;
+// The height of the cutout for a fret's tang, in millimeters.
+fret_tang_cutout_height_mm = 2;
+
+// The thickness of a fret's tang, in millimeters.
+fret_tang_thickness_mm = 0.51;
+
+// The thickness of the cutout for a fret's tang, in millimeters.
+fret_tang_cutout_thickness_mm = 0.75;
+
+// The amount of tang cut away from either side of a fret, in millimeters.
+fret_tang_margin_mm = 3;
+
+// The amount of "trim" either side of a fret before the tang cutout, in
+// millimeters.
+fret_tang_cutout_margin_mm = 3;
 
 // The gap either side of a fret, in millimeters.
 fret_spacing_mm = 0.25;

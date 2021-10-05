@@ -9,7 +9,9 @@ include <../../measurements/fretboard.scad>;
 include <../../measurements/body.scad>;
 
 module printed_fret(fret_index) {
-  start_y_mm = fret_y_mm(scale_length_mm, fret_index) - fret_thickness_mm / 2;
+  y_mm = fret_y_mm(scale_length_mm, fret_index);
+
+  start_y_mm = y_mm - fret_thickness_mm / 2;
   start_neck_width_mm = neck_interpolate(
     scale_length_mm,
     fret_count,
@@ -35,7 +37,7 @@ module printed_fret(fret_index) {
     1
   );
 
-  end_y_mm = start_y_mm + fret_thickness_mm;
+  end_y_mm = y_mm + fret_thickness_mm / 2;
   end_neck_width_mm = neck_interpolate(
     scale_length_mm,
     fret_count,
@@ -58,6 +60,26 @@ module printed_fret(fret_index) {
     neck_shape_zero,
     neck_shape_body,
     end_y_mm,
+    1
+  );
+
+  cutout_start_y_mm = y_mm - fret_tang_cutout_thickness_mm / 2;
+  cutout_start_width_mm = neck_interpolate(
+    scale_length_mm,
+    fret_count,
+    neck_width_zero_mm,
+    neck_width_body_mm,
+    cutout_start_y_mm,
+    1
+  );
+
+  cutout_end_y_mm = y_mm + fret_tang_cutout_thickness_mm / 2;
+  cutout_end_width_mm = neck_interpolate(
+    scale_length_mm,
+    fret_count,
+    neck_width_zero_mm,
+    neck_width_body_mm,
+    cutout_end_y_mm,
     1
   );
 
@@ -106,6 +128,26 @@ module printed_fret(fret_index) {
         ]
       )
     );
+
+    loft([
+      for (xz_mm = fret_cutout_cross_section(
+        fretboard_radius_mm,
+        fretboard_sides,
+        cutout_start_width_mm,
+        body_thickness_mm,
+        fret_tang_cutout_height_mm,
+        fret_tang_cutout_margin_mm
+      )) [xz_mm[0], cutout_start_y_mm, xz_mm[1]]
+    ], [
+      for (xz_mm = fret_cutout_cross_section(
+        fretboard_radius_mm,
+        fretboard_sides,
+        cutout_end_width_mm,
+        body_thickness_mm,
+        fret_tang_cutout_height_mm,
+        fret_tang_cutout_margin_mm
+      )) [xz_mm[0], cutout_end_y_mm, xz_mm[1]]
+    ]);
 
     translate([
       0,

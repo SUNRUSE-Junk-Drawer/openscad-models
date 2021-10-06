@@ -85,50 +85,64 @@ module printed_fret(fret_index) {
   );
 
   difference() {
-    loft(
-      concat(
-        [
-          for (xz_mm = fretboard_cross_section(
-            fretboard_radius_mm,
-            fretboard_sides,
-            start_neck_width_mm,
-            body_thickness_mm,
-            false
-          )) [xz_mm[0], start_y_mm, xz_mm[1]]
-        ],
-        [
-          for (xz_mm = neck_cross_section(
-            fretboard_radius_mm,
-            body_thickness_mm,
-            neck_sides,
-            start_neck_width_mm,
-            start_neck_thickness_mm,
-            start_neck_shape
-          )) [xz_mm[0], start_y_mm, xz_mm[1]]
-        ]
-      ),
-      concat(
-        [
-          for (xz_mm = fretboard_cross_section(
-            fretboard_radius_mm,
-            fretboard_sides,
-            end_neck_width_mm,
-            body_thickness_mm,
-            false
-          )) [xz_mm[0], end_y_mm, xz_mm[1]]
-        ],
-        [
-          for (xz_mm = neck_cross_section(
-            fretboard_radius_mm,
-            body_thickness_mm,
-            neck_sides,
-            end_neck_width_mm,
-            end_neck_thickness_mm,
-            end_neck_shape
-          )) [xz_mm[0], end_y_mm, xz_mm[1]]
-        ]
-      )
-    );
+    union() {
+      loft(
+        concat(
+          [
+            for (xz_mm = fretboard_cross_section(
+              fretboard_radius_mm,
+              fretboard_sides,
+              start_neck_width_mm,
+              body_thickness_mm,
+              false
+            )) [xz_mm[0], start_y_mm, xz_mm[1]]
+          ],
+          [
+            for (xz_mm = neck_cross_section(
+              fretboard_radius_mm,
+              body_thickness_mm,
+              neck_sides,
+              start_neck_width_mm,
+              start_neck_thickness_mm,
+              start_neck_shape
+            )) [xz_mm[0], start_y_mm, xz_mm[1]]
+          ]
+        ),
+        concat(
+          [
+            for (xz_mm = fretboard_cross_section(
+              fretboard_radius_mm,
+              fretboard_sides,
+              end_neck_width_mm,
+              body_thickness_mm,
+              false
+            )) [xz_mm[0], end_y_mm, xz_mm[1]]
+          ],
+          [
+            for (xz_mm = neck_cross_section(
+              fretboard_radius_mm,
+              body_thickness_mm,
+              neck_sides,
+              end_neck_width_mm,
+              end_neck_thickness_mm,
+              end_neck_shape
+            )) [xz_mm[0], end_y_mm, xz_mm[1]]
+          ]
+        )
+      );
+
+      translate([fret_orienter_x_mm, end_y_mm, fret_orienter_z_mm]) {
+        rotate([90, 0, 0]) {
+          sphere(d = fret_orienter_diameter_mm, $fn = fret_orienter_sides);
+        };
+      };
+
+      translate([-fret_orienter_x_mm, end_y_mm, fret_orienter_z_mm]) {
+        rotate([90, 0, 0]) {
+          sphere(d = fret_orienter_diameter_mm, $fn = fret_orienter_sides);
+        };
+      };
+    };
 
     loft([
       for (xz_mm = fret_cutout_cross_section(
@@ -165,6 +179,18 @@ module printed_fret(fret_index) {
           h = truss_rod_length_mm(),
           $fn = truss_rod_sides
         );
+      };
+    };
+
+    translate([fret_orienter_x_mm, start_y_mm, fret_orienter_z_mm]) {
+      rotate([90, 0, 0]) {
+        sphere(d = fret_orienter_cutout_diameter_mm, $fn = fret_orienter_sides);
+      };
+    };
+
+    translate([-fret_orienter_x_mm, start_y_mm, fret_orienter_z_mm]) {
+      rotate([90, 0, 0]) {
+        sphere(d = fret_orienter_cutout_diameter_mm, $fn = fret_orienter_sides);
       };
     };
   };

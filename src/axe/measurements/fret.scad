@@ -34,3 +34,18 @@ fret_tang_cutout_margin_mm = 2.9;
 
 // The gap either side of a fret, in millimeters.
 fret_spacing_mm = 0.25;
+
+// The diameter of cutouts used to orient frets, in millimeters.
+fret_orienter_cutout_diameter_mm = 5.5;
+
+// The diameter of dimples used to orient frets, in millimeters.
+fret_orienter_diameter_mm = 5;
+
+// The location of dimples used to orient frets on the X axis, in millimetrs.
+fret_orienter_x_mm = 12.25;
+
+// The location of dimples used to orient frets on the Z axis, in millimetrs.
+fret_orienter_z_mm = 18;
+
+// The number of sides of dimples used to orient frets.
+fret_orienter_sides = 8;

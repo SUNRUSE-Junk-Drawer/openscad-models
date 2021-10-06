@@ -49,3 +49,15 @@ fret_orienter_z_mm = 18;
 
 // The number of sides of dimples used to orient frets.
 fret_orienter_sides = 8;
+
+// The location of fret labels on the X axis, in millimetrs.
+fret_label_x_mm = 9;
+
+// The location of fret labels on the Z axis, in millimetrs.
+fret_label_z_mm = 13;
+
+// The depth of fret labels, in millimeters.
+fret_label_depth_mm = 1;
+
+// The size of fret labels, in millimeters.
+fret_label_size_mm = 3;

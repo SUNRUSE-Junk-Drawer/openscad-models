@@ -193,5 +193,19 @@ module printed_fret(fret_index) {
         sphere(d = fret_orienter_cutout_diameter_mm, $fn = fret_orienter_sides);
       };
     };
+
+    translate([fret_label_x_mm, start_y_mm + fret_label_depth_mm - 0.01, fret_label_z_mm]) {
+      rotate([90, 0, 0]) {
+        linear_extrude(fret_label_depth_mm + 0.01) {
+          text(
+            str(fret_index),
+            size = fret_label_size_mm,
+            halign = "center",
+            valign = "center",
+            font = "Liberation Sans:style=Bold"
+          );
+        };
+      };
+    };
   };
 };
